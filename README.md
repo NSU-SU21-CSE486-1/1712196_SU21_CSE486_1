@@ -7,7 +7,7 @@
 <p align="center"><strong>North South University</strong></p>
 <p align="center">Department of Electrical &amp; Computer Engineering</p>
 <p align="center"><strong>Course Repository</strong></p>
-<p align="center"><strong>SUMMER 2021 </strong></p>
+<p align="center"><strong>Summer 2021 </strong></p>
 
 
 <p align="center"><strong>Course Name</strong>: Mobile and Wireless Application Development </p>
