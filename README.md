@@ -16,9 +16,9 @@
 <p align="center"><strong><u>Member 1</u></strong><u>:</u></p>
 <p align="center"><strong>Name</strong><strong>:</strong> Istiak Ahamed Saif</p>
 <p align="center"><strong>ID</strong><strong>:&nbsp; </strong>1712196</p>
-<p align="center"><strong>Email</strong><strong>:</strong> <a href="mailto:istiak.saif@northsouth.edu">abc.def@northsouth.edu</a></p>
+<p align="center"><strong>Email</strong><strong>:</strong> <a href="mailto:istiak.saif@northsouth.edu">istiak.saif@northsouth.edu</a></p>
 
-<p align="center"><strong>Git Repository</strong><strong>: </strong><a href="https://github.com/NSU-SU21-CSE486-1/1712196_SU21_CSE486_1">https://github.com/NSU-SP21-CSE486-1/1234567-SP21-CSE486-S01</a></p>
+<p align="center"><strong>Git Repository</strong><strong>: </strong><a href="https://github.com/NSU-SU21-CSE486-1/1712196_SU21_CSE486_1">https://github.com/NSU-SU21-CSE486-1/1712196_SU21_CSE486_1</a></p>
 
 <p align="center"><strong>Date Prepared</strong><strong>: </strong>June 17, 2021</p>
 <p><strong>&nbsp;</strong></p>
