@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "783279484679",
+    "project_id": "uniclubz",
+    "storage_bucket": "uniclubz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783279484679:android:ac82df480703c9d6289fa2",
+        "android_client_info": {
+          "package_name": "com.example.uniclubz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783279484679-62n1cu3ln6rsvaclrijlbi25u8strdrb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbD4WdMg25SaxD6qkyTAPaBLyf5e1NrDs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783279484679-62n1cu3ln6rsvaclrijlbi25u8strdrb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
