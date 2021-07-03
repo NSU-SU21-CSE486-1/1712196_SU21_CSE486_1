@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.uniclubz">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -10,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniCluBz">
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".Activity.UserHomeActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".Activity.LogInActivity"
             android:screenOrientation="portrait"
@@ -22,7 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.RegistationActivity"/>
+        <activity android:name=".Activity.RegistationActivity" />
+        <activity android:name=".Activity.checkActivity" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

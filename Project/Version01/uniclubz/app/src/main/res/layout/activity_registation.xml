@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="3">
-
-<!--    tools:context=".Activity.RegistationActivity"-->
+    android:weightSum="3"
+    tools:context=".Activity.RegistationActivity">
 
     <LinearLayout
         android:layout_weight=".9"
@@ -100,7 +99,6 @@
                         android:background="@null"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/dropdown"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
