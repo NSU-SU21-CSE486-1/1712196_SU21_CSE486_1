@@ -117,7 +117,8 @@
                         android:paddingStart="15dp"
                         android:inputType="number"
                         android:textColorHint="@color/dark"
-                        android:background="@null"/>
+                        android:background="@null"
+                        android:maxLength="18"/>
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"

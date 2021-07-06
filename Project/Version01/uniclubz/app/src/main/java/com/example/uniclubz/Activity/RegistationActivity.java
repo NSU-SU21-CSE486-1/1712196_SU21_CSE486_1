@@ -87,7 +87,7 @@ public class RegistationActivity extends AppCompatActivity {
             Toast.makeText(RegistationActivity.this, "please enter NID", Toast.LENGTH_SHORT).show();
             return;
         }
-        else if (NID.length()<18){
+        else if (NID.length()<13){
             Toast.makeText(RegistationActivity.this, "Nid number minimum 13 and max 18 numbers", Toast.LENGTH_SHORT).show();
             return;
         }
