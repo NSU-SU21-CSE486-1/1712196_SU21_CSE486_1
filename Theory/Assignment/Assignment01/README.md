@@ -1,5 +1,8 @@
+<h1>Project based Assignment specification</h1>
+
 1. Create a project called Project01 in your Theory/Assignment/Assignment01/ folder in the Git repository.
 2. In this project, Create multiple activities for setting up a user profile for your project.
+
 	a. Main activity should set the following:
 		
 		i. Name
