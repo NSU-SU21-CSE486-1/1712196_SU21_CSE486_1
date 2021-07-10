@@ -10,34 +10,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b71754-7115-4d85-98a2-6557be82304c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project01/Activity/FinalActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/calendar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/icon.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/font/poppins.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/font/poppins_bold.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/font/poppins_light.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bg.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_university_affiliation.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/usertype_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/androidTest/java/com/example/uniclubz/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/androidTest/java/com/istiaksaif/uniclubz/ExampleInstrumentedTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/google-services.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/androidTest/java/com/example/uniclubz/ExampleInstrumentedTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/Activity/LogInActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/LogInActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/Activity/RegistationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/RegistationActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/Activity/UserHomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/UserHomeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/Activity/checkActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/checkActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/Activity/LogInActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/Activity/RegistationActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/Activity/UserHomeActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/Activity/checkActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/Model/User.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/test/java/com/example/uniclubz/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/test/java/com/istiaksaif/uniclubz/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/test/java/com/example/uniclubz/ExampleUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,21 +69,24 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
-    </key>
-    <key name="android.template.1972828410">
+    <key name="android.template.584483018">
       <recent name="com.istiaksaif.Project01.Activity" />
     </key>
     <key name="android.template.-1452871299">
       <recent name="com.example.uniclubz.Activity" />
+    </key>
+    <key name="android.template.1972828410">
+      <recent name="com.istiaksaif.Project01.Activity" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
     </key>
   </component>
   <component name="RunManager">
@@ -196,22 +189,22 @@
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
     <state x="684" y="257" width="530" height="605" key="FileChooserDialogImpl/0.26.1920.1054@0.26.1920.1054" timestamp="1625759461645" />
-    <state width="1863" height="305" key="GridCell.Tab.0.bottom" timestamp="1625769840133">
+    <state width="1863" height="305" key="GridCell.Tab.0.bottom" timestamp="1625847490545">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state width="1863" height="305" key="GridCell.Tab.0.bottom/0.26.1920.1054@0.26.1920.1054" timestamp="1625769840133" />
-    <state width="1863" height="305" key="GridCell.Tab.0.center" timestamp="1625769840133">
+    <state width="1863" height="305" key="GridCell.Tab.0.bottom/0.26.1920.1054@0.26.1920.1054" timestamp="1625847490545" />
+    <state width="1863" height="305" key="GridCell.Tab.0.center" timestamp="1625847490544">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state width="1863" height="305" key="GridCell.Tab.0.center/0.26.1920.1054@0.26.1920.1054" timestamp="1625769840133" />
-    <state width="1863" height="305" key="GridCell.Tab.0.left" timestamp="1625769840132">
+    <state width="1863" height="305" key="GridCell.Tab.0.center/0.26.1920.1054@0.26.1920.1054" timestamp="1625847490544" />
+    <state width="1863" height="305" key="GridCell.Tab.0.left" timestamp="1625847490544">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state width="1863" height="305" key="GridCell.Tab.0.left/0.26.1920.1054@0.26.1920.1054" timestamp="1625769840132" />
-    <state width="1863" height="305" key="GridCell.Tab.0.right" timestamp="1625769840133">
+    <state width="1863" height="305" key="GridCell.Tab.0.left/0.26.1920.1054@0.26.1920.1054" timestamp="1625847490544" />
+    <state width="1863" height="305" key="GridCell.Tab.0.right" timestamp="1625847490544">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state width="1863" height="305" key="GridCell.Tab.0.right/0.26.1920.1054@0.26.1920.1054" timestamp="1625769840133" />
+    <state width="1863" height="305" key="GridCell.Tab.0.right/0.26.1920.1054@0.26.1920.1054" timestamp="1625847490544" />
     <state x="684" y="320" width="542" height="472" key="chooseDestDirectoryDialog" timestamp="1625754027131">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>

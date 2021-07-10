@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project01">
         <activity android:name=".Activity.FinalActivity"></activity>
+        <activity android:name=".Activity.SecondActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Activity.UniversityAffiliationActivity" />
         <activity android:name=".Activity.ProfileMainActivity">
