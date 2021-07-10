@@ -26,6 +26,7 @@
 
 
 --------------------------------------------------------------------------------------------
+<h1>Project specification</h1>
 
 <p>Build an application called UniCluBz that serves as a common platform for all clubs across all universities in Bangladesh. Any club in any university will create a profile for their club. To register any club, the contact information for that club (Email, phone, Web address, Logo, University) will have to be provided. When a club is created, a key person will be associated with the club account. </p>
 
