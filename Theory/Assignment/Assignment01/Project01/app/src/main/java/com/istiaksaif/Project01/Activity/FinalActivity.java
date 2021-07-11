@@ -54,9 +54,9 @@ public class FinalActivity extends AppCompatActivity {
             String result7 = b.getString("studentLevel");
             level.setText(result7);
             String result8 = b.getString("email");
-            studentID.setText(result8);
+            email.setText(result8);
             String result9 = b.getString("phone");
-            level.setText(result9);
+            phone.setText(result9);
         }
     }
 }
