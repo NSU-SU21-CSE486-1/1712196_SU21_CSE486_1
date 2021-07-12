@@ -1,4 +1,4 @@
-package com.example.uniclubz.Activity;
+package com.istiaksaif.uniclubz.Activity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.uniclubz.R;
+import com.istiaksaif.uniclubz.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;

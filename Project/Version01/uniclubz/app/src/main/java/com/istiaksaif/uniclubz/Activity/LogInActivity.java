@@ -1,4 +1,4 @@
-package com.example.uniclubz.Activity;
+package com.istiaksaif.uniclubz.Activity;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -15,8 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.example.uniclubz.Model.User;
-import com.example.uniclubz.R;
+import com.istiaksaif.uniclubz.Model.User;
+import com.istiaksaif.uniclubz.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;

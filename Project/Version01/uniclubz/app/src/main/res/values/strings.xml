@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">UniCluBz</string>
+    <string name="reset_password_msg">Enter your registered email below.  </string>
+    <string name="reset_password_msg1">we will send your RESET link via Email.</string>
 </resources>

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.uniclubz">
+    package="com.istiaksaif.uniclubz">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniCluBz">
-        <activity android:name=".Activity.UserHomeActivity"></activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.istiaksaif.uniclubz.Activity.UserHomeActivity"></activity>
+        <activity android:name="com.istiaksaif.uniclubz.MainActivity" />
         <activity
-            android:name=".Activity.LogInActivity"
+            android:name="com.istiaksaif.uniclubz.Activity.LogInActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.UniCluBz"
             android:windowSoftInputMode="adjustPan">
@@ -24,8 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.RegistationActivity" />
-        <activity android:name=".Activity.checkActivity" />
+        <activity android:name="com.istiaksaif.uniclubz.Activity.RegistationActivity" />
+        <activity android:name="com.istiaksaif.uniclubz.Activity.checkActivity" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

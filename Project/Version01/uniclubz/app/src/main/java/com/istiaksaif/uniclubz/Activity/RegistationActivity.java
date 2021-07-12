@@ -1,4 +1,4 @@
-package com.example.uniclubz.Activity;
+package com.istiaksaif.uniclubz.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -13,8 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.uniclubz.Model.User;
-import com.example.uniclubz.R;
+import com.istiaksaif.uniclubz.Model.User;
+import com.istiaksaif.uniclubz.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;

@@ -1,4 +1,4 @@
-package com.example.uniclubz;
+package com.istiaksaif.uniclubz;
 
 import org.junit.Test;
 

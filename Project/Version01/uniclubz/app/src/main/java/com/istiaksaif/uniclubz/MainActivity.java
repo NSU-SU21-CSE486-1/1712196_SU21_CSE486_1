@@ -1,16 +1,14 @@
-package com.example.uniclubz.Activity;
+package com.istiaksaif.uniclubz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.uniclubz.R;
-
-public class UserHomeActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_home);
+        setContentView(R.layout.activity_main);
     }
 }
