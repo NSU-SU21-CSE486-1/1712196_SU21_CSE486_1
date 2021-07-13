@@ -24,8 +24,8 @@
 ![Screenshot_2021-07-09-23-14-38](https://user-images.githubusercontent.com/74167381/125170260-f16f1180-e1cf-11eb-8697-b9c1a4637723.png)
 
 <h5>Date Picker</h5>
-![Screenshot_2021-07-13-18-37-35](https://user-images.githubusercontent.com/74167381/125455788-a18f208d-6203-4596-9c58-02de98e4daab.png)
 
+![Screenshot_2021-07-13-18-37-35](https://user-images.githubusercontent.com/74167381/125456445-4012e140-ddc2-4f73-8d7b-d6c0f52966b7.png)
 
 ![Screenshot_2021-07-09-23-14-28](https://user-images.githubusercontent.com/74167381/125170263-f3d16b80-e1cf-11eb-9757-5200908f6e52.png)
 ![Screenshot_2021-07-09-23-14-20](https://user-images.githubusercontent.com/74167381/125170265-f5029880-e1cf-11eb-99ec-1cfc9a46c89f.png)
