@@ -1,0 +1,237 @@
+<resources>
+    <string name="app_name">FragmentCommunication</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="album">Beatles Anthology Vol1</string>
+    <string name="albumDes">Behind That Locked Door: Beatles Rarities!</string>
+    <string name="title1">Cry for a Shadow</string>
+    <string name="title2">My Bonnie - Ain’t She Sweet</string>
+    <string name="title3">Searching</string>
+    <string name="title4">Love Me Do</string>
+    <string name="title5">She Loves you- Till There Was You- Twist and Shout</string>
+    <string name="title6">Leave My Kitten Alone</string>
+    <string name="title7">One After 909</string>
+
+    <string name="article1">Many a Beatle fanatic started down the outtake
+        road, like I did, with a first listen to this song. Originally titled
+        “Beatle Bop” and recorded in a single session that yielded four songs (the other three featured Tony Sheridan with the Beatles as a backing band), “Cry for a Shadow” is an instrumental written by Lennon and Harrison, which makes it unique to this day. John Lennon plays rhythm guitar, George Harrison plays lead guitar, Paul McCartney plays bass, and Pete Best plays drums. The sessions were produced by Bert Kaempfert in Hamburg, Germany, during the Beatles’ second visit from April through July of 1961 to play in the Reeperbahn-section clubs.</string>
+    <string name="article2">At the same session, the Beatles played on “My Bonnie” (the first-ever single with Beatles playing), as the backing band for English singer Tony Sheridan, originally a member of the Jets. The popularity of this single in Liverpool brought the Beatles to the attention of Brian Epstein, who worked in the NEMS record store and tried to meet demand for the disc. John Lennon then sings a fine “Ain’t She Sweet” (his first-ever released vocal).</string>
+    <string name="article3">Hit the town in the cold of the night
+Looking? round for the warmth of the light
+There was fog on the road
+So I guess no one saw me arriving
+I was tired and awake for some time
+Then my lights hit a welcoming sign
+It said if you are alone
+You can make this your home
+If you want to, oww
+Searching, searching
+(For so long)
+Searching
+(Searching)
+Searching, searching
+(I just wanted to dance)
+Searching
+Stepped outta the night
+It was brighter inside
+Someone come and asked me my name
+Taken back by surprise
+When I saw with my eyes
+A girl in a love is disguise
+She said stop, stop, stop
+Get out your heart
+Havent got a lot
+But play the part
+Mister, stop, stop, stop
+Get out your heart
+What I have got is hot stuff
+The night is ours
+Coffee glass that had fell from my hand
+Like a child couldnt quite understand
+What was I doin? there
+Far away from nowhere, on my own
+I was tired and awake for some time
+Just the light playing tricks with my mind
+Was she there in a crowd
+Was the music too loud, was I dreaming
+Searching, searching
+(For so long)
+Searching
+(I dont want romance)
+(I just want my chance, searching)
+Searching, searching
+(Yeah)
+Searching
+Just came by here by chance
+Only wanted to dance
+No news, no her, no, no, no one
+Taken back by surprise
+Whats in front of my eyes
+This girl in a loves disguise
+She said stop, stop, stop
+Get out your heart
+Havent got a lot
+But play the part
+Mister, stop, stop, stop
+Get out your heart
+What Ive gots hot stuff
+The night is ours</string>
+    <string name="article4">Love, love me do
+You know I love you
+Ill always be true
+So please
+        Love me do
+Whoa, love me do
+Love, love me do
+You know I love you
+Ill always be true
+So please
+Love me do
+Whoa, love me do
+Someone to love, somebody new
+Someone to love, someone like you
+Love, love me do
+You know I love you
+Ill always be true
+So please
+Love me do
+Whoa, love me do
+Love, love me do
+You know I love you
+Ill always be true
+So please
+Love me do
+Whoa, love me do
+Yeah, love me do
+Whoa-oh, love me do</string>
+    <string name="article5">There were bells on a hill
+But I never heard them ringing
+No, I never heard them at all
+Till there was you
+
+There were birds in the sky
+But I never saw them winging
+No, I never saw them at all
+Till there was you
+
+Then there was music and wonderful roses
+They tell me in sweet fragrant meadows
+Of dawn and dew
+
+There was love all around
+But I never heard it singing
+No, I never heard it at all
+Till there was you
+
+Then there was music and wonderful roses
+They tell me in sweet fragrant meadows
+Of dawn and dew
+
+There was love all around
+But I never heard it singing
+No, I never heard it at all
+Till there was you
+Till there was you
+
+
+</string>
+    <string name="article6">
+You better leave my kitten all alone
+You better leave my kitten all alone
+But I told you big fat bulldog
+You better leave her alone
+
+You better leave my kitten all alone
+You better leave my kitten all alone
+This dog is gonna get you
+If you dont leave her alone
+
+Well Mr.Dog Im gonna hit you
+On the top of your head
+That child is gonna miss you,
+You gonna wish that you were dead
+If you dont leave my kitten all alone
+Well I told you big fat bulldog
+You better leave her alone
+
+Alright
+Hey, hey, hey, hey
+Hey, hey, hey
+Hey hey
+
+Well Mr. Dog Im gonna hit you
+On the top of your head
+That girl is gonna miss you
+You gonna wish that you were dead
+If you dont leave my kitten all alone, oh yeah
+Well I told you, big fat bulldog
+You better leave her alone
+
+Yeah hey you better leave, you better leave
+You better leave, yeah you better leave
+You better leave, oh you got to leave
+Hey hey, well I told you big fat bulldog (fade out)</string>
+    <string name="article7">My baby says shes travling on the one after 909
+I said move over honey Im travelling on that line
+I said move over once, move over twice
+Come on baby dont be cold as ice
+I said Im travling on the one after 909
+
+I begged her not to go and I begged her on my bended knees
+Youre only fooling around, youre fooling around with me
+I said move over once, move over twice
+Come on baby dont be cold as ice
+I said Im travling on the one after 909
+
+I got my bag, run to the station
+Railman says youve got the the wrong location
+I got my bag, run right home
+Then I find Ive got the number wrong
+
+Well I said Im travling on the one after 909
+I said move over honey Im travelling on that line
+I said move over once, move over twice
+Come on baby dont be cold as ice
+I said Im travling on the one after 909
+
+I got my bag, run to the station
+railman says youve got the the wrong location
+I got my bag, run right home
+Then I find Ive got the number wrong
+
+Well I said Im travling on the one after 909
+I said move over honey Im travelling on that line
+I said move over once, move over twice
+Come on baby dont be cold as ice
+I said were travling on the one after 90
+I said were travling on the one after 90
+I said were travling on the one after 909</string>
+    <!-- Text for the fragment. -->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="yes_message">ARTICLE: Like</string>
+    <string name="no_message">ARTICLE: Thanks</string>
+    <string name="question_article">LIKE THE ARTICLE?</string>
+
+    <!-- Text for the challenge. -->
+    <string name="yes_message2">SONG: Like</string>
+    <string name="no_message2">SONG: Thanks</string>
+    <string name="question_the_song">LIKE THE SONG?</string>
+    <string name="my_rating">My Rating:</string>
+
+    <!-- Text for the button in FragmentExample2. -->
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <!-- Text for the exception message in FragmentCommunicate. -->
+    <string name="exception_message">must implement OnFragmentInteractionListener</string>
+    <string name="todo">TODO</string>
+    <string name="listnum">1</string>
+    <string name="listnum2">2</string>
+    <string name="listnum3">3</string>
+    <string name="listnum4">4</string>
+    <string name="listnum5">5</string>
+    <string name="listnum6">6</string>
+    <string name="listnum7">7</string>
+
+</resources>
