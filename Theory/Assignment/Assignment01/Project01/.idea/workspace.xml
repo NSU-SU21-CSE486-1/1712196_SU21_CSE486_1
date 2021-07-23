@@ -10,21 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b71754-7115-4d85-98a2-6557be82304c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/ProfileMainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/SecondActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/UniversityAffiliationActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/drawable/buttonbg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_profile_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_second.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_university_affiliation.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/google-services.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/androidTest/java/com/example/uniclubz/ExampleInstrumentedTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/Activity/LogInActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/Activity/RegistationActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/Activity/UserHomeActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/Activity/checkActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/MainActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/example/uniclubz/Model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/UserHomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/UserHomeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_registation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_registation.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_user_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_user_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/values/colors.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/test/java/com/example/uniclubz/ExampleUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/values/themes.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project01/Activity/FinalActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project01/Activity/FinalActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_final.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
