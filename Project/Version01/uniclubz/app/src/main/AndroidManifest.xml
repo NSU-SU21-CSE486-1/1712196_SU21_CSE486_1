@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.istiaksaif.uniclubz">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,10 +14,11 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniCluBz">
-        <activity android:name="com.istiaksaif.uniclubz.Activity.UserHomeActivity"></activity>
-        <activity android:name="com.istiaksaif.uniclubz.MainActivity" />
+        <activity android:name=".Activity.CreateClubActivity"></activity>
+        <activity android:name=".Activity.UserHomeActivity" />
+        <activity android:name=".MainActivity" />
         <activity
-            android:name="com.istiaksaif.uniclubz.Activity.LogInActivity"
+            android:name=".Activity.LogInActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.UniCluBz"
             android:windowSoftInputMode="adjustPan">
@@ -24,8 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.istiaksaif.uniclubz.Activity.RegistationActivity" />
-        <activity android:name="com.istiaksaif.uniclubz.Activity.checkActivity" />
+        <activity android:name=".Activity.RegistationActivity" />
+        <activity android:name=".Activity.checkActivity" />
+        <activity android:name=".Activity.EditPersonalInfoActivity" />
+        <activity android:name=".Activity.UniversityAffiliationActivity" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
