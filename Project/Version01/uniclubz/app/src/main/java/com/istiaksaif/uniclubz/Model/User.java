@@ -4,18 +4,19 @@ package com.istiaksaif.uniclubz.Model;
  */
 
 public class User {
-    String name,email,phone,password,address,isUser,imageUrl,nid,userId,status;
+    String name,email,phone,password,dob,bloodgroup,isUser,imageUrl,nid,userId,status;
 
     public User() {
     }
 
-    public User(String name, String email, String password, String isUser, String phone, String address, String imageUrl, String nid, String userId, String status) {
+    public User(String name, String email, String password, String isUser, String phone, String dob,String bloodgroup, String imageUrl, String nid, String userId, String status) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.isUser = isUser;
         this.phone = phone;
-        this.address = address;
+        this.dob = dob;
+        this.bloodgroup = bloodgroup;
         this.imageUrl = imageUrl;
         this.nid = nid;
         this.userId = userId;
@@ -63,12 +64,20 @@ public class User {
         this.phone = phone;
     }
 
-    public String getAddress() {
-        return address;
+    public String getDob() {
+        return dob;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public String getBloodgroup() {
+        return bloodgroup;
+    }
+
+    public void setBloodgroup(String bloodgroup) {
+        this.bloodgroup = bloodgroup;
     }
 
     public String getImageUrl() {
