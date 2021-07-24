@@ -2,7 +2,6 @@
 <androidx.drawerlayout.widget.DrawerLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:layout_gravity="right"
     android:id="@+id/drawer_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -84,15 +83,6 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/drawernavview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:menu="@menu/drawermenu"
-        android:layout_gravity="end"
-        android:fitsSystemWindows="true"
-        android:layout_marginTop="70dp"
-        android:padding="10dp"
-        />
+    <include layout="@layout/drawerdialog"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
