@@ -15,6 +15,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.istiaksaif.Project01.R;
 
+import static com.istiaksaif.Project01.Utils.optionUniName.optionUniName;
+
 public class UniversityAffiliationActivity extends AppCompatActivity {
 
     private TextInputEditText fullName,dateOfBirth,nid,bloodGroup,studentID;
@@ -55,9 +57,6 @@ public class UniversityAffiliationActivity extends AppCompatActivity {
 
         uniName = findViewById(R.id.uniName);
         TextInputLayout textInputLayoutUniName = findViewById(R.id.uninamelayout);
-        String []optionUniName = {"North South University","East West University","Dhaka University"
-                ,"BRAC University","AIUB","IUB","Shahjalal University of Science and Technology",
-                "Rajshahi University of Engineering & Technology","RU","Deffordial University"};
         ArrayAdapter<String> arrayAdapterUni = new ArrayAdapter<>(this,R.layout.usertype_item,optionUniName);
         ((MaterialAutoCompleteTextView) textInputLayoutUniName.getEditText()).setAdapter(arrayAdapterUni);
 

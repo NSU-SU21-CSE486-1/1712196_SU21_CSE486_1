@@ -10,30 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b71754-7115-4d85-98a2-6557be82304c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/ProfileMainActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/SecondActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/UniversityAffiliationActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/drawable/buttonbg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_profile_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_second.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_university_affiliation.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project01/Utils/optionUniName.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/UserHomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/UserHomeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_registation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_registation.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_user_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_user_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/values/colors.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/UniversityAffiliationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/UniversityAffiliationActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project01/Activity/UniversityAffiliationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project01/Activity/UniversityAffiliationActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[803dc47b]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -68,14 +57,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project01" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="android.template.584483018">
-      <recent name="com.istiaksaif.Project01.Activity" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project01" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
     </key>
     <key name="android.template.-1452871299">
       <recent name="com.example.uniclubz.Activity" />
@@ -83,9 +74,8 @@
     <key name="android.template.1972828410">
       <recent name="com.istiaksaif.Project01.Activity" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+    <key name="android.template.584483018">
+      <recent name="com.istiaksaif.Project01.Activity" />
     </key>
   </component>
   <component name="RunManager">
