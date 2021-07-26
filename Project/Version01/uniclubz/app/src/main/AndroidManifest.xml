@@ -14,7 +14,8 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniCluBz">
-        <activity android:name=".Activity.CreateClubActivity"></activity>
+        <activity android:name=".Activity.ClubActivity"></activity>
+        <activity android:name=".Activity.CreateClubActivity" />
         <activity android:name=".Activity.UserHomeActivity" />
         <activity android:name=".MainActivity" />
         <activity
