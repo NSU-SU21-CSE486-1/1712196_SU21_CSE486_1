@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -63,7 +64,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
         tabLayout = (TabLayout)findViewById(R.id.tab);
         tabviewPager = (ViewPager)findViewById(R.id.tabviewpager);
-        TabViewPagerAdapter tabViewPagerAdapter = new TabViewPagerAdapter(getSupportFragmentManager());
+        TabViewPagerAdapter tabViewPagerAdapter = new TabViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         tabViewPagerAdapter.AddFragment(new ProfileFragment(),"Profile");
         tabViewPagerAdapter.AddFragment(new NotificationFragment(),null);
         tabViewPagerAdapter.AddFragment(new ClubsFragment(),null);

@@ -30,6 +30,8 @@ import com.istiaksaif.uniclubz.R;
 
 import java.util.HashMap;
 
+import static com.istiaksaif.uniclubz.Utils.optionUniName.optionUniName;
+
 public class UniversityAffiliationActivity extends AppCompatActivity {
 
     private TextInputEditText studentID;
@@ -74,9 +76,9 @@ public class UniversityAffiliationActivity extends AppCompatActivity {
 
         uniName = findViewById(R.id.uniName);
         TextInputLayout textInputLayoutUniName = findViewById(R.id.uninamelayout);
-        String []optionUniName = {"North South University","East West University","Dhaka University"
-                ,"BRAC University","AIUB","IUB","Shahjalal University of Science and Technology",
-                "Rajshahi University of Engineering & Technology","RU","Deffordial University"};
+//        String []optionUniName = {"North South University","East West University","Dhaka University"
+//                ,"BRAC University","AIUB","IUB","Shahjalal University of Science and Technology",
+//                "Rajshahi University of Engineering & Technology","RU","Deffordial University"};
         ArrayAdapter<String> arrayAdapterUni = new ArrayAdapter<>(this,R.layout.usertype_item,optionUniName);
         ((MaterialAutoCompleteTextView) textInputLayoutUniName.getEditText()).setAdapter(arrayAdapterUni);
 
