@@ -1,4 +1,4 @@
-package com.istiaksaif.Project01;
+package com.istiaksaif.Project02;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,7 +14,7 @@ import android.widget.DatePicker;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.istiaksaif.Project01.Activity.UniversityAffiliationActivity;
+import com.istiaksaif.Project02.Activity.UniversityAffiliationActivity;
 
 import java.util.Calendar;
 

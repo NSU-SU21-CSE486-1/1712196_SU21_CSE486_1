@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.istiaksaif.Project01">
+    package="com.istiaksaif.Project02">
 
     <application
         android:allowBackup="true"
@@ -8,17 +8,17 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Project01">
-        <activity android:name=".Activity.FinalActivity"></activity>
-        <activity android:name=".Activity.SecondActivity" />
-        <activity android:name=".MainActivity" >
+        android:theme="@style/Theme.Project02">
+        <activity android:name="com.istiaksaif.Project02.Activity.FinalActivity"></activity>
+        <activity android:name="com.istiaksaif.Project02.Activity.SecondActivity" />
+        <activity android:name="com.istiaksaif.Project02.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.UniversityAffiliationActivity" />
+        <activity android:name="com.istiaksaif.Project02.Activity.UniversityAffiliationActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -1,30 +1,32 @@
-package com.istiaksaif.Project01.Activity;
+package com.istiaksaif.Project02.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.istiaksaif.Project01.R;
+import com.istiaksaif.Project02.R;
 
-public class FinalActivity extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity {
 
-    private TextInputEditText fullName,dateOfBirth,nid,bloodGroup;
-    private TextView uniName,studentID,department,level,phone,email;
-    private Toolbar toolbar;
+    private TextInputEditText fullName,dateOfBirth,nid,bloodGroup,phone,email;
+    private TextView uniName,studentID,department,level;
+    private Button nextButton;
     private Bundle b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_final);
+        setContentView(R.layout.activity_second);
 
         b = getIntent().getExtras();
 
-        toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Profile");
         fullName = findViewById(R.id.name);
         dateOfBirth = findViewById(R.id.dateofbirth);
         nid = findViewById(R.id.nid);
@@ -35,6 +37,13 @@ public class FinalActivity extends AppCompatActivity {
         level = findViewById(R.id.level);
         email = findViewById(R.id.email);
         phone = findViewById(R.id.phone);
+        nextButton = findViewById(R.id.next_button);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Info();
+            }
+        });
 
         if (b!=null){
             String result = b.getString("name");
@@ -53,10 +62,27 @@ public class FinalActivity extends AppCompatActivity {
             studentID.setText(result6);
             String result7 = b.getString("studentLevel");
             level.setText(result7);
-            String result8 = b.getString("email");
-            email.setText(result8);
-            String result9 = b.getString("phone");
-            phone.setText(result9);
         }
+    }
+    private void Info() {
+        String Email = email.getText().toString();
+        String Phone = phone.getText().toString();
+
+        if (TextUtils.isEmpty(Email)){
+            Toast.makeText(SecondActivity.this, "please enter email", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else if (TextUtils.isEmpty(Phone)){
+            Toast.makeText(SecondActivity.this, "please enter phone number", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Intent intent = new Intent(SecondActivity.this, FinalActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("email",Email);
+        bundle.putString("phone",Phone);
+        intent.putExtras(bundle);
+        intent.putExtras(b);
+        startActivity(intent);
     }
 }

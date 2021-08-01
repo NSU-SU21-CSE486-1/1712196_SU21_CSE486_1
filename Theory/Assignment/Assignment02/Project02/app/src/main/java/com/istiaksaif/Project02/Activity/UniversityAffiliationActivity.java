@@ -1,4 +1,4 @@
-package com.istiaksaif.Project01.Activity;
+package com.istiaksaif.Project02.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-import com.istiaksaif.Project01.R;
+import com.istiaksaif.Project02.R;
 
-import static com.istiaksaif.Project01.Utils.optionUniName.optionUniName;
+import static com.istiaksaif.Project02.Utils.optionUniName.optionUniName;
 
 public class UniversityAffiliationActivity extends AppCompatActivity {
 
