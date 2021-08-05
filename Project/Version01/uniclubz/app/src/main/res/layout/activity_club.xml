@@ -4,21 +4,35 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:id="@+id/rootlayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Activity.ClubActivity">
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
+        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:elevation="0dp"
-        android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/clubtoolbar"
             android:layout_width="match_parent"
-            android:layout_height="230dp"
-            app:contentInsetStart="0dp"
-            android:background="@drawable/club"/>
+            android:layout_height="250dp"
+            android:background="@drawable/club"
+            app:contentInsetLeft="0dp"
+            android:fitsSystemWindows="true"/>
+        <TextView
+            android:id="@+id/clubname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NSU Programing Club"
+            android:textSize="20dp"
+            android:textColor="@color/dark"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:background="@color/white"
+            android:paddingTop="5dp"/>
     </com.google.android.material.appbar.AppBarLayout>
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nsv"
@@ -26,6 +40,7 @@
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:layout_marginTop="-1dp"
+        android:fitsSystemWindows="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
