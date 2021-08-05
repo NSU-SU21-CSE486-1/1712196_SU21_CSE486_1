@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.istiaksaif.uniclubz.Activity.ClubActivity;
 import com.istiaksaif.uniclubz.R;
@@ -18,6 +19,7 @@ import com.istiaksaif.uniclubz.R;
 public class clubProfileFragment extends Fragment {
 
     private Toolbar toolbar;
+    private TextView clubName;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -38,11 +40,15 @@ public class clubProfileFragment extends Fragment {
         super.onResume();
         ((ClubActivity)getActivity()).setToolbar(toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+        clubName = ((ClubActivity)getActivity()).findViewById(R.id.clubname);
+        clubName.setVisibility(View.VISIBLE);
+        clubName.setMaxHeight(80);
     }
     @Override
     public void onStop() {
         super.onStop();
         ((ClubActivity)getActivity()).setToolbar(toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        ((ClubActivity)getActivity()).setText(clubName);
     }
 }

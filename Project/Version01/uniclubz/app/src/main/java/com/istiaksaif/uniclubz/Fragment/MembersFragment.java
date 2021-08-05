@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,7 +18,8 @@ import com.istiaksaif.uniclubz.R;
 
 public class MembersFragment extends Fragment {
     private Toolbar toolbar;
-    private AppBarLayout appBarLayout;
+    private TextView clubName;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -35,5 +37,6 @@ public class MembersFragment extends Fragment {
         super.onResume();
         ((ClubActivity)getActivity()).setToolbar(toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        ((ClubActivity)getActivity()).setText(clubName);
     }
 }
