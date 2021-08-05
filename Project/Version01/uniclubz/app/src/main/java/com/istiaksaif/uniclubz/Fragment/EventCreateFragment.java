@@ -44,6 +44,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
+import static com.istiaksaif.uniclubz.Utils.TimeListHelper.optionTimeList;
 
 public class EventCreateFragment extends Fragment {
     private Toolbar toolbar;
@@ -136,56 +137,10 @@ public class EventCreateFragment extends Fragment {
         timeRecyclerView1.setLayoutManager(layoutManager1);
 
         timeModelList = new ArrayList<TimeModel>();
-
-        timeModelList.add(new TimeModel("20:00"));
-        timeModelList.add(new TimeModel("20:30"));
-        timeModelList.add(new TimeModel("21:00"));
-        timeModelList.add(new TimeModel("21:30"));
-        timeModelList.add(new TimeModel("22:00"));
-        timeModelList.add(new TimeModel("22:30"));
-        timeModelList.add(new TimeModel("23:00"));
-        timeModelList.add(new TimeModel("23:30"));
-        timeModelList.add(new TimeModel("00:00"));
-        timeModelList.add(new TimeModel("00:30"));
-        timeModelList.add(new TimeModel("01:00"));
-        timeModelList.add(new TimeModel("01:30"));
-        timeModelList.add(new TimeModel("02:00"));
-        timeModelList.add(new TimeModel("02:30"));
-        timeModelList.add(new TimeModel("03:00"));
-        timeModelList.add(new TimeModel("03:30"));
-        timeModelList.add(new TimeModel("04:00"));
-        timeModelList.add(new TimeModel("04:30"));
-        timeModelList.add(new TimeModel("05:00"));
-        timeModelList.add(new TimeModel("05:30"));
-        timeModelList.add(new TimeModel("06:00"));
-        timeModelList.add(new TimeModel("06:30"));
-        timeModelList.add(new TimeModel("07:00"));
-        timeModelList.add(new TimeModel("07:30"));
-        timeModelList.add(new TimeModel("08:00"));
-        timeModelList.add(new TimeModel("08:30"));
-        timeModelList.add(new TimeModel("09:00"));
-        timeModelList.add(new TimeModel("09:30"));
-        timeModelList.add(new TimeModel("10:00"));
-        timeModelList.add(new TimeModel("10:30"));
-        timeModelList.add(new TimeModel("11:00"));
-        timeModelList.add(new TimeModel("11:30"));
-        timeModelList.add(new TimeModel("12:00"));
-        timeModelList.add(new TimeModel("12:30"));
-        timeModelList.add(new TimeModel("13:00"));
-        timeModelList.add(new TimeModel("13:30"));
-        timeModelList.add(new TimeModel("14:00"));
-        timeModelList.add(new TimeModel("14:30"));
-        timeModelList.add(new TimeModel("15:00"));
-        timeModelList.add(new TimeModel("15:30"));
-        timeModelList.add(new TimeModel("16:00"));
-        timeModelList.add(new TimeModel("16:30"));
-        timeModelList.add(new TimeModel("17:00"));
-        timeModelList.add(new TimeModel("17:30"));
-        timeModelList.add(new TimeModel("18:00"));
-        timeModelList.add(new TimeModel("18:30"));
-        timeModelList.add(new TimeModel("19:00"));
-        timeModelList.add(new TimeModel("19:30"));
-
+        for(int i=0;i<=24;i++){
+            TimeModel time = new TimeModel(optionTimeList[i]);
+            timeModelList.add(time);
+        }
         timeAdapter = new TimeAdapter(getContext(),timeModelList);
         timeRecyclerView.setAdapter(timeAdapter);
         timeAdapter.notifyDataSetChanged();
