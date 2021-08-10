@@ -9,16 +9,19 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project02">
-        <activity android:name="com.istiaksaif.Project02.Activity.FinalActivity"></activity>
-        <activity android:name="com.istiaksaif.Project02.Activity.SecondActivity" />
-        <activity android:name="com.istiaksaif.Project02.MainActivity" >
+        <activity android:name=".Activity.ProfileActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.istiaksaif.Project02.Activity.UniversityAffiliationActivity" />
+        <activity android:name=".Activity.FinalActivity" />
+        <activity android:name=".Activity.SecondActivity" />
+        <activity android:name=".MainActivity">
+
+        </activity>
+        <activity android:name=".Activity.UniversityAffiliationActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
