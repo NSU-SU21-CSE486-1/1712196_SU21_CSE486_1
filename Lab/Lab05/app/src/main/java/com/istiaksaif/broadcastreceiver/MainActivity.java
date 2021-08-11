@@ -14,9 +14,6 @@ public class MainActivity extends AppCompatActivity {
 
     private CustomReceiver mReceiver = new CustomReceiver();
 
-//    private static final String ACTION_CUSTOM_BROADCAST =
-//            BuildConfig.APPLICATION_ID + ".ACTION_CUSTOM_BROADCAST";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,14 +22,9 @@ public class MainActivity extends AppCompatActivity {
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_POWER_CONNECTED);
         filter.addAction(Intent.ACTION_POWER_DISCONNECTED);
-        IntentFilter filter1 = new IntentFilter(Intent.ACTION_HEADSET_PLUG);
-        this.registerReceiver(mReceiver, filter1);
+        filter.addAction(Intent.ACTION_HEADSET_PLUG);
 
         this.registerReceiver(mReceiver, filter);
-
-        // Register the receiver to receive custom broadcast.
-//        LocalBroadcastManager.getInstance(this).registerReceiver
-//                (mReceiver, new IntentFilter(ACTION_CUSTOM_BROADCAST));
     }
 
     public void sendCustomBroadcast(View view) {
@@ -43,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         this.unregisterReceiver(mReceiver);
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(mReceiver);
         super.onDestroy();
     }
 }

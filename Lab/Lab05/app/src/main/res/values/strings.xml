@@ -8,4 +8,6 @@
     <string name="receiver_off">Receiver Off</string>
     <string name="unknown_action">unknown intent action</string>
     <string name="head_set_connect">HeadSet connected!</string>
+    <string name="head_set_disconnect">HeadSet Disconnected!</string>
+
 </resources>
