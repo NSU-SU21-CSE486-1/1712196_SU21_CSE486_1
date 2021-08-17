@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 import com.istiaksaif.uniclubz.R;
 
 import java.util.HashMap;
@@ -39,10 +40,11 @@ public class CreateClubActivity extends AppCompatActivity {
     private Button nextButton;
     private Toolbar toolBar;
 
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference,databaseRef;
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private String uid = user.getUid();
     private ProgressDialog progressDialog;
+    private String ClubId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,14 +132,19 @@ public class CreateClubActivity extends AppCompatActivity {
         }
 
         progressDialog.show();
+        databaseRef = FirebaseDatabase.getInstance().getReference().child("ClubInfo");
+        ClubId = databaseReference.child(uid).push().getKey();
+
         HashMap<String, Object> result = new HashMap<>();
         result.put("clubName", CLUBNAME);
         result.put("clubEmail", CLUBEMAIL);
         result.put("clubUniName", CLUBUNINAME);
         result.put("clubPrivacy", PRIVACY);
         result.put("admin",uid);
+        result.put("clubId",ClubId);
+        result.put("clubImage","https://firebasestorage.googleapis.com/v0/b/uniclubz.appspot.com/o/1628247632703.android.app.ContextImpl%24ApplicationContentResolver%40225a7c6c?alt=media&token=1c08d730-93ea-494e-97c2-8c2975619ba8");
 
-        FirebaseDatabase.getInstance().getReference().child("ClubInfo").updateChildren(result)
+        databaseRef.child(ClubId).updateChildren(result)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
