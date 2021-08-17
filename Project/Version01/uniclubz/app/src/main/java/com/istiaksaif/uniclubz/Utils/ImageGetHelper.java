@@ -1,6 +1,7 @@
 package com.istiaksaif.uniclubz.Utils;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
@@ -21,6 +22,7 @@ import androidx.fragment.app.Fragment;
 public class ImageGetHelper {
 
     private Fragment fragment;
+    private Activity activity;
     public static final int CAMERA_REQUEST_CODE=100;
     public static final int STORAGE_REQUEST_CODE=200;
     public static final int IMAGE_PICK_GALLERY_CODE=300;
@@ -30,8 +32,9 @@ public class ImageGetHelper {
     String cameraPermission[] = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
     String storagePermission[] = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-    public ImageGetHelper(Fragment fragment) {
+    public ImageGetHelper(Fragment fragment,Activity activity) {
         this.fragment = fragment;
+        this.activity = activity;
     }
 
     private boolean checkStoragePermission(){
