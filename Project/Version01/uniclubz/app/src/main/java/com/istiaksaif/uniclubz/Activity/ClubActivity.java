@@ -3,46 +3,81 @@ package com.istiaksaif.uniclubz.Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.material.appbar.AppBarLayout;
-import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.istiaksaif.uniclubz.Adaptar.TabViewPagerAdapter;
 import com.istiaksaif.uniclubz.Fragment.BloodReqFragment;
-import com.istiaksaif.uniclubz.Fragment.ClubsFragment;
-import com.istiaksaif.uniclubz.Fragment.ClubsHomeFragment;
+import com.istiaksaif.uniclubz.Fragment.ClubHomeFragment;
 import com.istiaksaif.uniclubz.Fragment.EventCreateFragment;
 import com.istiaksaif.uniclubz.Fragment.MembersFragment;
-import com.istiaksaif.uniclubz.Fragment.NotificationFragment;
-import com.istiaksaif.uniclubz.Fragment.ProfileFragment;
-import com.istiaksaif.uniclubz.Fragment.UserHomeFragment;
 import com.istiaksaif.uniclubz.Fragment.clubProfileFragment;
 import com.istiaksaif.uniclubz.R;
+import com.istiaksaif.uniclubz.Utils.ImageGetHelper;
+import com.squareup.picasso.Picasso;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.net.URL;
+import java.util.HashMap;
+
 /**
- * Created by Istiak Saif on 27/07/21.
+ * Istiak Saif on 27/07/21.
  */
 public class ClubActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager tabviewPager;
     private Toolbar toolbar;
+    private TextView clubName;
+    private ImageView clubImage;
+    private Uri imageUri;
+    private ImageGetHelper getImageFunction;
+
+    private DatabaseReference databaseReference;
+    private StorageReference storageReference;
+    private String profilePhoto;
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private String uid = user.getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_club);
 
+        getImageFunction = new ImageGetHelper(null,this);
+
         toolbar = findViewById(R.id.clubtoolbar);
+//        clubImage = findViewById(R.id.clubimg);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("");
@@ -59,7 +94,7 @@ public class ClubActivity extends AppCompatActivity {
         tabLayout = (TabLayout)findViewById(R.id.tab);
         tabviewPager = (ViewPager)findViewById(R.id.tabviewpager);
         TabViewPagerAdapter tabViewPagerAdapter = new TabViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        tabViewPagerAdapter.AddFragment(new ClubsHomeFragment(),null);
+        tabViewPagerAdapter.AddFragment(new ClubHomeFragment(),null);
         tabViewPagerAdapter.AddFragment(new EventCreateFragment(),null);
         tabViewPagerAdapter.AddFragment(new BloodReqFragment(),null);
         tabViewPagerAdapter.AddFragment(new clubProfileFragment(),"Profile");
@@ -103,7 +138,111 @@ public class ClubActivity extends AppCompatActivity {
             }
         });
 
+        //clubName
+        clubName = findViewById(R.id.clubname);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("ClubInfo");
+        Query query = databaseReference.orderByChild("admin").equalTo(uid);
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot:snapshot.getChildren()) {
+                    String clubname = ""+dataSnapshot.child("clubName").getValue();
+                    String clubimage = ""+dataSnapshot.child("clubImage").getValue();
+
+                    clubName.setText(clubname);
+                    clubImage = toolbar.findViewById(R.id.clubimage);
+
+                    try {
+                        Picasso.get().load(clubimage).resize(320,320).into(clubImage);
+                    }catch (Exception e){
+                        Picasso.get().load(R.drawable.dropdown).into(clubImage);
+                    }
+                    Drawable drawable = clubImage.getDrawable();
+                    toolbar.setBackground(drawable);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ClubActivity.this,"Some Thing Wrong", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+//        //clubImage
+//        toolbar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                getImageFunction.pickFromGallery();
+//            }
+//        });
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == getImageFunction.IMAGE_PICK_GALLERY_CODE && resultCode == RESULT_OK && data != null) {
+            imageUri = data.getData();
+            uploadProfilePhoto(imageUri);
+            clubImage.setImageURI(imageUri);
+        }
+    }
+    private void uploadProfilePhoto(Uri uri) {
+        Bitmap bitmap = null;
+        try {
+            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
+        byte[] fileInBytes = baos.toByteArray();
+
+        String filePathName = profilePhoto+"_"+uid;
+        StorageReference storageReference1 = storageReference.child(filePathName);
+
+//        pro = new ProgressDialog(getContext());
+//        pro.show();
+//        pro.setContentView(R.layout.progress_dialog);
+//        pro.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+        storageReference1.putBytes(fileInBytes).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                while (!uriTask.isSuccessful());
+                Uri downloadUri = uriTask.getResult();
+                if(uriTask.isSuccessful()){
+                    HashMap<String, Object> results = new HashMap<>();
+                    results.put(profilePhoto,downloadUri.toString());
+
+                    databaseReference.child(uid).updateChildren(results)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+//                                    progressDialog.dismiss();
+//                                    pro.dismiss();
+                                    Toast.makeText(ClubActivity.this,"Image Update", Toast.LENGTH_SHORT).show();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+//                            progressDialog.dismiss();
+                            Toast.makeText(ClubActivity.this,"Error Update", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else {
+//                    progressDialog.dismiss();
+                    Toast.makeText(ClubActivity.this,"Error", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+//                progressDialog.dismiss();
+                Toast.makeText(ClubActivity.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     public void setToolbar(Toolbar toolbar){
         toolbar = findViewById(R.id.clubtoolbar);
         setSupportActionBar(toolbar);
@@ -118,4 +257,9 @@ public class ClubActivity extends AppCompatActivity {
         clubName.setVisibility(View.INVISIBLE);
         clubName.setMaxHeight(titleBarHeight);
     }
+//    public void setimg(ImageView clubImage){
+//        clubImage = findViewById(R.id.clubimg);
+//        clubImage.setVisibility(View.GONE);
+//    }
+
 }

@@ -32,6 +32,7 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowActivityTransitions">true</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
     <style name="Theme.AppCompat" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->

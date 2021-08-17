@@ -1,7 +1,4 @@
 package com.istiaksaif.uniclubz.Model;
-/**
- * Created by Istiak Saif on 02/07/21.
- */
 
 public class User {
     String name,email,phone,password,dob,bloodgroup,isUser,imageUrl,nid,userId,status;
