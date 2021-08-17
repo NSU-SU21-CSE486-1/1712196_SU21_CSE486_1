@@ -10,21 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b71754-7115-4d85-98a2-6557be82304c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_asynclayoutinflater_asynclayoutinflater_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_core_ui_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_legacy_legacy_support_v4_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_media_media_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_slidingpanelayout_slidingpanelayout_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__androidx_swiperefreshlayout_swiperefreshlayout_1_0_0_aar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Activity/ProfileActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Adapter/TabViewPagerAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Fragment/FirstTabFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Fragment/SecondTabFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Fragment/ThirdTabFragment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_first_tab.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_second_tab.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_third_tab.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Adapter/UniAffiliationAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Utils/model.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_plus.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/uniafffiliationcard.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/ClubActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/ClubActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/CreateClubActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/CreateClubActivity.java" afterDir="false" />
@@ -52,19 +41,22 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/Project02.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/Project02.app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Activity/ProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Activity/ProfileActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Fragment/FirstTabFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Fragment/FirstTabFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Fragment/SecondTabFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Fragment/SecondTabFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Fragment/ThirdTabFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Fragment/ThirdTabFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_first_tab.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_first_tab.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_second_tab.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_second_tab.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_third_tab.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_third_tab.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[803dc47b]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -86,6 +78,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="layoutResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -102,6 +95,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="803dc47b" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-08-13T04:48:43.629Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -113,8 +108,10 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="android.template.-84752549">
-      <recent name="com.istiaksaif.Project02.Activity" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project01" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
     </key>
     <key name="android.template.-1452871299">
       <recent name="com.example.uniclubz.Activity" />
@@ -122,17 +119,15 @@
     <key name="android.template.1972828410">
       <recent name="com.istiaksaif.Project01.Activity" />
     </key>
-    <key name="android.template.584483018">
-      <recent name="com.istiaksaif.Project01.Activity" />
+    <key name="android.template.-84752549">
+      <recent name="com.istiaksaif.Project02.Activity" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.istiaksaif.Project02.Fragment" />
       <recent name="com.istiaksaif.Project02.Adapter" />
+      <recent name="com.istiaksaif.Project02.Fragment" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project01" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
+    <key name="android.template.584483018">
+      <recent name="com.istiaksaif.Project01.Activity" />
     </key>
   </component>
   <component name="RunManager">
@@ -219,6 +214,10 @@
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
     <state x="361" y="225" width="1188" height="662" key="#PSD/0.26.1920.1054@0.26.1920.1054" timestamp="1625738739613" />
+    <state x="721" y="204" width="468" height="704" key="#com.intellij.ide.util.MemberChooser" timestamp="1628830473927">
+      <screen x="0" y="26" width="1920" height="1054" />
+    </state>
+    <state x="721" y="204" width="468" height="704" key="#com.intellij.ide.util.MemberChooser/0.26.1920.1054@0.26.1920.1054" timestamp="1628830473927" />
     <state x="627" y="243" width="655" height="626" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1627212252270">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
@@ -227,34 +226,34 @@
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
     <state x="540" y="304" width="830" height="505" key="AndroidCreateResourceDirectoryDialog/0.26.1920.1054@0.26.1920.1054" timestamp="1625734929021" />
-    <state x="540" y="304" width="830" height="505" key="AndroidCreateResourceFileDialog" timestamp="1628617284578">
+    <state x="540" y="304" width="830" height="505" key="AndroidCreateResourceFileDialog" timestamp="1628826582902">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state x="540" y="304" width="830" height="505" key="AndroidCreateResourceFileDialog/0.26.1920.1054@0.26.1920.1054" timestamp="1628617284578" />
+    <state x="540" y="304" width="830" height="505" key="AndroidCreateResourceFileDialog/0.26.1920.1054@0.26.1920.1054" timestamp="1628826582902" />
     <state x="556" y="254" width="798" height="605" key="Downloadable.Font.Dialog.Size" timestamp="1625760237703">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
     <state x="556" y="254" width="798" height="605" key="Downloadable.Font.Dialog.Size/0.26.1920.1054@0.26.1920.1054" timestamp="1625760237703" />
-    <state x="684" y="257" width="530" height="605" key="FileChooserDialogImpl" timestamp="1625759461646">
+    <state x="684" y="257" width="530" height="605" key="FileChooserDialogImpl" timestamp="1628702098992">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state x="684" y="257" width="530" height="605" key="FileChooserDialogImpl/0.26.1920.1054@0.26.1920.1054" timestamp="1625759461645" />
-    <state width="1863" height="305" key="GridCell.Tab.0.bottom" timestamp="1628617980033">
+    <state x="684" y="257" width="530" height="605" key="FileChooserDialogImpl/0.26.1920.1054@0.26.1920.1054" timestamp="1628702098992" />
+    <state width="1863" height="120" key="GridCell.Tab.0.bottom" timestamp="1628830309024">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state width="1863" height="305" key="GridCell.Tab.0.bottom/0.26.1920.1054@0.26.1920.1054" timestamp="1628617980033" />
-    <state width="1863" height="305" key="GridCell.Tab.0.center" timestamp="1628617980033">
+    <state width="1863" height="120" key="GridCell.Tab.0.bottom/0.26.1920.1054@0.26.1920.1054" timestamp="1628830309024" />
+    <state width="1863" height="120" key="GridCell.Tab.0.center" timestamp="1628830309023">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state width="1863" height="305" key="GridCell.Tab.0.center/0.26.1920.1054@0.26.1920.1054" timestamp="1628617980033" />
-    <state width="1863" height="305" key="GridCell.Tab.0.left" timestamp="1628617980032">
+    <state width="1863" height="120" key="GridCell.Tab.0.center/0.26.1920.1054@0.26.1920.1054" timestamp="1628830309023" />
+    <state width="1863" height="120" key="GridCell.Tab.0.left" timestamp="1628830309022">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state width="1863" height="305" key="GridCell.Tab.0.left/0.26.1920.1054@0.26.1920.1054" timestamp="1628617980032" />
-    <state width="1863" height="305" key="GridCell.Tab.0.right" timestamp="1628617980033">
+    <state width="1863" height="120" key="GridCell.Tab.0.left/0.26.1920.1054@0.26.1920.1054" timestamp="1628830309022" />
+    <state width="1863" height="120" key="GridCell.Tab.0.right" timestamp="1628830309024">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state width="1863" height="305" key="GridCell.Tab.0.right/0.26.1920.1054@0.26.1920.1054" timestamp="1628617980033" />
+    <state width="1863" height="120" key="GridCell.Tab.0.right/0.26.1920.1054@0.26.1920.1054" timestamp="1628830309024" />
     <state x="684" y="320" width="542" height="472" key="chooseDestDirectoryDialog" timestamp="1625754027131">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>

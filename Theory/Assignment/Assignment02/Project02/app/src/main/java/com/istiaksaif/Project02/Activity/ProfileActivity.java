@@ -15,6 +15,8 @@ import com.istiaksaif.Project02.Fragment.SecondTabFragment;
 import com.istiaksaif.Project02.Fragment.ThirdTabFragment;
 import com.istiaksaif.Project02.R;
 
+import static androidx.fragment.app.FragmentStatePagerAdapter.*;
+
 public class ProfileActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
@@ -27,7 +29,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         tabLayout = (TabLayout)findViewById(R.id.tab);
         tabviewPager = (ViewPager)findViewById(R.id.tabviewpager);
-        TabViewPagerAdapter tabViewPagerAdapter = new TabViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        TabViewPagerAdapter tabViewPagerAdapter = new TabViewPagerAdapter(getSupportFragmentManager(), BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         tabViewPagerAdapter.AddFragment(new FirstTabFragment(),"First Tab");
         tabViewPagerAdapter.AddFragment(new SecondTabFragment(),"Second Tab");
         tabViewPagerAdapter.AddFragment(new ThirdTabFragment(),"Third Tab");
@@ -36,18 +38,18 @@ public class ProfileActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(tabviewPager);
 
         //transformPage between fragments
-        tabviewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                page.setTranslationX(page.getWidth()* -position);
-                if(position <= -1 || position >= 1){
-                    page.setAlpha(0);
-                }else if(position==0){
-                    page.setAlpha(1);
-                }else {
-                    page.setAlpha(1-Math.abs(position));
-                }
-            }
-        });
+//        tabviewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
+//            @Override
+//            public void transformPage(@NonNull View page, float position) {
+//                page.setTranslationX(page.getWidth()* -position);
+//                if(position <= -1 || position >= 1){
+//                    page.setAlpha(0);
+//                }else if(position==0){
+//                    page.setAlpha(1);
+//                }else {
+//                    page.setAlpha(1-Math.abs(position));
+//                }
+//            }
+//        });
     }
 }
