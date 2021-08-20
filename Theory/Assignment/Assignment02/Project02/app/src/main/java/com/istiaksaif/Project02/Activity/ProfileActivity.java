@@ -46,13 +46,14 @@ public class ProfileActivity extends AppCompatActivity {
     private ViewPager tabviewPager;
     public static String filename = "userinfo.txt";
     public static String filePath = "project02Dir";
-    public static String fileContent;
+    public static String fileContent,fileContent1,fileContent2;
     public static TextView submitButton;
     private ImageView swtichbtn;
 
 
     final static public  String User_Key = "User";
     final static public  String Uni_Key = "UniAffiliation";
+    final static public  String Contact_Key = "Contact";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

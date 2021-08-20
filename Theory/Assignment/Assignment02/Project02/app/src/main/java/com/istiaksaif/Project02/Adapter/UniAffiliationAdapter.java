@@ -2,6 +2,7 @@ package com.istiaksaif.Project02.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,14 +28,20 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
+import static com.istiaksaif.Project02.Activity.ProfileActivity.Contact_Key;
 import static com.istiaksaif.Project02.Activity.ProfileActivity.Uni_Key;
 import static com.istiaksaif.Project02.Activity.ProfileActivity.User_Key;
 import static com.istiaksaif.Project02.Activity.ProfileActivity.fileContent;
+import static com.istiaksaif.Project02.Activity.ProfileActivity.fileContent1;
+import static com.istiaksaif.Project02.Activity.ProfileActivity.fileContent2;
 import static com.istiaksaif.Project02.Activity.ProfileActivity.filePath;
 import static com.istiaksaif.Project02.Activity.ProfileActivity.filename;
 import static com.istiaksaif.Project02.Activity.ProfileActivity.submitButton;
+import static com.istiaksaif.Project02.Adapter.ItemAdapter.Email;
+import static com.istiaksaif.Project02.Adapter.ItemAdapter.Phone;
 import static com.istiaksaif.Project02.Utils.optionUniName.optionUniName;
 
 public class UniAffiliationAdapter extends RecyclerView.Adapter<UniAffiliationAdapter.ViewHolder> {
@@ -70,9 +77,61 @@ public class UniAffiliationAdapter extends RecyclerView.Adapter<UniAffiliationAd
                 String DateOfBirth = FirstTabFragment.dateOfBirth.getText().toString();
                 String NID = FirstTabFragment.nid.getText().toString();
                 String BloodGroup = FirstTabFragment.bloodGroup.getText().toString();
+
+                ItemList itemList = new ItemList();
+                String phone = itemList.getPhone();
+                String email = itemList.getEmail();
+
+
+                    fileContent ="Name : " +FullName+"\n"+"DOB: " +DateOfBirth+"\n"
+                            +"NID : " +NID+"\n"+"Blood Group : " +BloodGroup;
+                    if(!fileContent.equals("")){
+                        File myFile = new File(context.getExternalFilesDir(filePath),filename);
+                        FileOutputStream fileOutputStream = null;
+                        try {
+                            fileOutputStream = new FileOutputStream(myFile);
+                            fileOutputStream.write(fileContent.getBytes());
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    fileContent1 ="University Name : " +uniname+"\n"+"StudentId: " +studentid+"\n"
+                            +"Department : " +dep+"\n"+"Level : " +level;
+                    if(!fileContent1.equals("")) {
+                        File myFile = new File(context.getExternalFilesDir(filePath), "uniInfo.txt");
+                        FileOutputStream fileOutputStream = null;
+                        try {
+                            fileOutputStream = new FileOutputStream(myFile);
+                            fileOutputStream.write(fileContent1.getBytes());
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+
+                    fileContent2 ="Phone Number : " +Phone+"\n"+"Email : " +Email;
+                    if(!fileContent2.equals("")) {
+                        File myFile = new File(context.getExternalFilesDir(filePath), "contactInfo.txt");
+                        FileOutputStream fileOutputStream = null;
+                        try {
+                            fileOutputStream = new FileOutputStream(myFile);
+                            fileOutputStream.write(fileContent2.getBytes());
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
                 Intent intent = new Intent(context, FinalActivity.class);
                 intent.putExtra(User_Key,new User(FullName,DateOfBirth,NID,BloodGroup));
                 intent.putExtra(Uni_Key,new FinalUniAffiliation(uniname,studentid,dep,level,null));
+                intent.putExtra(Contact_Key, new ItemList(phone,email,null));
                 context.startActivity(intent);
             }
         });
