@@ -1,39 +1,65 @@
 <h1>Project based Assignment specification</h1>
 
-1. Create a project called Project01 in your Theory/Assignment/Assignment01/ folder in the Git repository.
-2. In this project, Create multiple activities for setting up a user profile for your project.
+1. Copy the Project01 and paste it in your Theory/Assignment/Assignment02/ folder in the Git repository. Rename the project to Project02. Follow the project rename instructions for android.
+2. Implement lateral navigation (tabbed view) activity for profile implementation page
 
-	a. Main activity should set the following:
+	a. First Tab contains basic information about the members.
 		
 		i. Name
 		ii. Date of Birth
 		iii. NID
 		iv. Blood Group
 
-	b. When the next button is clicked, the information from the main activity should be displayed. This activity is titled University Affiliation. This activity should set the following:
+	b. Second Tab contains University Affiliation about the members. Students can add multiple university affiliation using a floating action button. 
 		
-		i. University name (Use drop down, pre-populated list)
-		ii. Department (Use drop down, pre-populated list, one for each university)
-		iii. Student ID
-		iv. Study Level (undergraduate / MS / PhD / Post-Doc)
+		i. University Affiliation should contain the following information:
+			1. University name (Use drop down, pre-populated list)
+			2. Department (Use drop down, pre-populated list, one for each university)
+			3. Student ID
+			4. Study Level (undergraduate / MS / PhD / Post-Doc)
+			5. Email
 
-	c. When the next button is clicked, display all the information from the main activity and university affiliation activity in a categorical manner. This activity should have a next button. On clicking this second activity, you should open up an activity where email and phone number for the user could be added. 
+		ii. Each university affiliation should be created inside a fragment.
+		iii. When a fab button is clicked, another university affiliation fragment is added.
+		iv. Second tab should contain a listview of university affiliation fragments
 
-	On clicking this activity, display all the data in a final activity.
-<h5>1. Main activity</h5>
+	c. Third tab contains phone numbers for the members. Students can add multiple phone numbers using a floating action button.
+	
+	i. Phone number should contain the following information:
+		1. Tag (Home/office/Other/Custom)
+		2. Phone number
+	ii. Each phone number entry should be inside a fragment.
+	iii, When a fab button is clicked, another phone number fragment is added to the third tab.
+	iv. Third tab should contain a listview of phone numbers.
 
-![Screenshot_2021-07-09-23-14-38](https://user-images.githubusercontent.com/74167381/125170260-f16f1180-e1cf-11eb-8697-b9c1a4637723.png)
+3. Add a submit button in lateral navigation activity. On clicking the submit button, add the member information to a recyclerview. Each entry in the recyclerview contains NID and person name. On tapping an entry in the recyclerview, display the information in a dialogue message. 
 
-<h5>Date Picker</h5>
+	Use file serialization for saving the data in the back end. Send data from one activity to another using parcelable.
+	
+<h5>1. First Fragment</h5>
 
-![Screenshot_2021-07-13-18-37-35](https://user-images.githubusercontent.com/74167381/125456445-4012e140-ddc2-4f73-8d7b-d6c0f52966b7.png)
-<h5>2.UniversityAffiliationActivity</h5>
+![Screenshot_2021-08-21-01-58-58-773_com istiaksaif Project01](https://user-images.githubusercontent.com/74167381/130288150-4e88b413-45d1-4a29-8042-661782f604e8.jpg)
 
-![Screenshot_2021-07-09-23-14-28](https://user-images.githubusercontent.com/74167381/125170263-f3d16b80-e1cf-11eb-9757-5200908f6e52.png)
-<h5>3.SecondActivity</h5>
 
-![Screenshot_2021-07-09-23-14-20](https://user-images.githubusercontent.com/74167381/125170265-f5029880-e1cf-11eb-99ec-1cfc9a46c89f.png)
-<h5>4.FianlActivity</h5>
+<h5>Second Fragment</h5>
 
-![Screenshot_2021-07-11-11-48-16](https://user-images.githubusercontent.com/74167381/125184337-9e807300-e23e-11eb-9de9-43690e40babe.png)
+![Screenshot_2021-08-21-01-59-02-617_com istiaksaif Project01](https://user-images.githubusercontent.com/74167381/130288212-69264e74-1d3c-4457-8d0a-803a1d1888c3.jpg)
+
+<h6>After Fab button click </h6>
+
+![Screenshot_2021-08-21-01-59-06-001_com istiaksaif Project01](https://user-images.githubusercontent.com/74167381/130288329-de795a65-b2f4-4ac9-8b71-3d4fad1d6f56.jpg)
+
+
+<h5>Third Fragment </h5>
+
+![Screenshot_2021-08-21-01-59-12-188_com istiaksaif Project01](https://user-images.githubusercontent.com/74167381/130288367-bb3a6353-1b51-4369-bee1-ab52147f4c97.jpg)
+
+<h5>Final Activity UserList</h5>
+
+![Screenshot_2021-08-21-01-59-51-400_com istiaksaif Project01](https://user-images.githubusercontent.com/74167381/130288421-d78e112e-c2d2-4377-be27-92a158597827.jpg)
+
+<h5>List Item Click and Open Popup show details </h5>
+
+![Screenshot_2021-08-21-01-59-53-810_com istiaksaif Project01](https://user-images.githubusercontent.com/74167381/130288484-636ac5cf-2bdb-46d3-9842-0e4c3a0bea96.jpg)
+
 
