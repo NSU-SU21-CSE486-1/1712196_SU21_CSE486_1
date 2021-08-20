@@ -2,7 +2,6 @@ package com.istiaksaif.Project02.Fragment;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -15,33 +14,16 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.istiaksaif.Project02.Activity.FinalActivity;
-import com.istiaksaif.Project02.Activity.ProfileActivity;
-import com.istiaksaif.Project02.Activity.UniversityAffiliationActivity;
-import com.istiaksaif.Project02.MainActivity;
 import com.istiaksaif.Project02.R;
-import com.istiaksaif.Project02.Utils.User;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.Calendar;
-
-import static com.istiaksaif.Project02.Activity.ProfileActivity.User_Key;
-import static com.istiaksaif.Project02.Activity.ProfileActivity.fileContent;
-import static com.istiaksaif.Project02.Activity.ProfileActivity.filePath;
-import static com.istiaksaif.Project02.Activity.ProfileActivity.filename;
-import static com.istiaksaif.Project02.Activity.ProfileActivity.submitButton;
 
 public class FirstTabFragment extends Fragment {
 
