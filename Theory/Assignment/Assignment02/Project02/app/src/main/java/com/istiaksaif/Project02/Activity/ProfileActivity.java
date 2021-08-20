@@ -13,17 +13,20 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputEditText;
 import com.istiaksaif.Project02.Adapter.TabViewPagerAdapter;
+import com.istiaksaif.Project02.Adapter.UniAffiliationAdapter;
 import com.istiaksaif.Project02.Fragment.FirstTabFragment;
 import com.istiaksaif.Project02.Fragment.SecondTabFragment;
 import com.istiaksaif.Project02.Fragment.ThirdTabFragment;
 import com.istiaksaif.Project02.MainActivity;
 import com.istiaksaif.Project02.R;
+import com.istiaksaif.Project02.Utils.User;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -41,12 +44,15 @@ public class ProfileActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager tabviewPager;
-    private String filename = "";
-    private String filePath = "";
-    private String fileContent;
-//    private TextInputEditText fullName,dateOfBirth,nid,bloodGroup;
-    private TextView textView,submitButton,swtichbtn;
-    private String fullName,dateOfBirth,nid,bloodGroup;
+    public static String filename = "userinfo.txt";
+    public static String filePath = "project02Dir";
+    public static String fileContent;
+    public static TextView submitButton;
+    private ImageView swtichbtn;
+
+
+    final static public  String User_Key = "User";
+    final static public  String Uni_Key = "UniAffiliation";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +71,6 @@ public class ProfileActivity extends AppCompatActivity {
         tabviewPager.setCurrentItem(0);
         tabLayout.setupWithViewPager(tabviewPager);
 
-//        fullName = findViewById(R.id.name);
-
         submitButton = findViewById(R.id.submitbtn);
         swtichbtn = findViewById(R.id.switchbtn);
         swtichbtn.setOnClickListener(new View.OnClickListener() {
@@ -74,54 +78,6 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ProfileActivity.this,FinalActivity.class);
                 startActivity(intent);
-            }
-        });
-        //data save file
-        filename = "userinfo.txt";
-        filePath = "project02Dir";
-        if(!isExternalStorageRW()){
-            submitButton.setEnabled(false);
-        }
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fullName= FirstTabFragment.fullName.getText().toString().trim();
-                dateOfBirth= FirstTabFragment.dateOfBirth.getText().toString().trim();
-                nid= FirstTabFragment.nid.getText().toString().trim();
-                bloodGroup= FirstTabFragment.bloodGroup.getText().toString().trim();
-                fileContent ="Name : " +fullName+"\n"+"DOB: " +dateOfBirth+"\n"
-                +"NID : " +nid+"\n"+"Blood Group : " +bloodGroup;
-//                File file = new File(getExternalFilesDir(filePath),filename);
-//                if(!file.exists()){
-//                    try {
-//                        file.createNewFile();
-//                        FileWriter fileWriter = new FileWriter(file,true);
-//                        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-//                        for(String string : fileContent){
-//                            fileContent += string+System.getProperty(System.lineSeparator());
-//                            bufferedWriter.write(fileContent);
-//                            bufferedWriter.close();
-//                        }
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-
-                if(!fileContent.equals("")){
-                    File myFile = new File(getExternalFilesDir(filePath),filename);
-                    FileOutputStream fileOutputStream = null;
-                    try {
-                        fileOutputStream = new FileOutputStream(myFile);
-                        fileOutputStream.write(fileContent.getBytes());
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    Toast.makeText(ProfileActivity.this,"done",Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(ProfileActivity.this,FinalActivity.class);
-                    startActivity(intent);
-                }
             }
         });
     }

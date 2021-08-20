@@ -19,11 +19,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.FinalActivity" />
-        <activity android:name=".Activity.SecondActivity" />
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".Activity.UniversityAffiliationActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
