@@ -1,15 +1,14 @@
 package com.istiaksaif.Project02.Adapter;
 
 import android.content.Context;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,94 +16,100 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.istiaksaif.Project02.Activity.FinalActivity;
+import com.istiaksaif.Project02.Fragment.FirstTabFragment;
 import com.istiaksaif.Project02.R;
-import com.istiaksaif.Project02.Utils.model;
+import com.istiaksaif.Project02.Utils.FinalUniAffiliation;
+import com.istiaksaif.Project02.Utils.ItemList;
+import com.istiaksaif.Project02.Utils.User;
 
-import java.util.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
 
+import static com.istiaksaif.Project02.Activity.ProfileActivity.Uni_Key;
+import static com.istiaksaif.Project02.Activity.ProfileActivity.User_Key;
+import static com.istiaksaif.Project02.Activity.ProfileActivity.fileContent;
+import static com.istiaksaif.Project02.Activity.ProfileActivity.filePath;
+import static com.istiaksaif.Project02.Activity.ProfileActivity.filename;
+import static com.istiaksaif.Project02.Activity.ProfileActivity.submitButton;
 import static com.istiaksaif.Project02.Utils.optionUniName.optionUniName;
 
 public class UniAffiliationAdapter extends RecyclerView.Adapter<UniAffiliationAdapter.ViewHolder> {
-        private String[] mDataset;
-        public String[][] data = new String[30][4];
-        private Context context;
+    private Context context;
+    private ArrayList<ItemList> mdata;
 
-        public static class ViewHolder extends RecyclerView.ViewHolder {
-            public LinearLayout mCardView;
+    public UniAffiliationAdapter(Context context, ArrayList<ItemList> mdata) {
+        this.context = context;
+        this.mdata = mdata;
+    }
 
-            public ViewHolder(LinearLayout v) {
-                super(v);
-                mCardView = v;
+    @NonNull
+    @Override
+    public UniAffiliationAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater layoutInflater = LayoutInflater.from(context);
+        View view = layoutInflater.inflate(R.layout.uniafffiliationcard,parent,false);
+        UniAffiliationAdapter.ViewHolder viewHolder = new UniAffiliationAdapter.ViewHolder(view);
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull UniAffiliationAdapter.ViewHolder holder, int position) {
+        holder.itemopen.setText(mdata.get(position).getlOpen());
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String uniname = holder.uniName.getText().toString();
+                String studentid = holder.studentID.getText().toString();
+                String dep = holder.department.getText().toString();
+                String level = holder.level.getText().toString();
+
+                String FullName = FirstTabFragment.fullName.getText().toString();
+                String DateOfBirth = FirstTabFragment.dateOfBirth.getText().toString();
+                String NID = FirstTabFragment.nid.getText().toString();
+                String BloodGroup = FirstTabFragment.bloodGroup.getText().toString();
+                Intent intent = new Intent(context, FinalActivity.class);
+                intent.putExtra(User_Key,new User(FullName,DateOfBirth,NID,BloodGroup));
+                intent.putExtra(Uni_Key,new FinalUniAffiliation(uniname,studentid,dep,level,null));
+                context.startActivity(intent);
             }
-        }
+        });
+    }
 
-        public UniAffiliationAdapter(String[] myDataset,Context context) {
-            mDataset = myDataset;
-            this.context = context;
-        }
+    @Override
+    public int getItemCount() {
+        return mdata.size();
+    }
 
-        @Override
-        public UniAffiliationAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                       int viewType) {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.uniafffiliationcard, parent, false);
+        TextView itemopen;
+        public TextInputEditText studentID;
+        public MaterialAutoCompleteTextView uniName,department,level;
 
-            ViewHolder viewHolder = new ViewHolder(linearLayout);
-            return viewHolder;
-        }
-
-
-        @Override
-        public void onBindViewHolder(ViewHolder holder, final int position) {
-            final TextInputEditText txt = (TextInputEditText) holder.mCardView.findViewById(R.id.studentId);
-            final MaterialAutoCompleteTextView txt2 = (MaterialAutoCompleteTextView) holder.mCardView.findViewById(R.id.uniName);
-
-            final MaterialAutoCompleteTextView txt3 = (MaterialAutoCompleteTextView) holder.mCardView.findViewById(R.id.department);
-            final MaterialAutoCompleteTextView txt4 = (MaterialAutoCompleteTextView) holder.mCardView.findViewById(R.id.level);
-
-            TextInputLayout textInputLayoutUniName = holder.mCardView.findViewById(R.id.uninamelayout);
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            itemopen = itemView.findViewById(R.id.layoutopen);
+            studentID = itemView.findViewById(R.id.studentId);
+            uniName = itemView.findViewById(R.id.uniName);
+            department = itemView.findViewById(R.id.department);
+            level = itemView.findViewById(R.id.level);
+            TextInputLayout textInputLayoutUniName = itemView.findViewById(R.id.uninamelayout);
             ArrayAdapter<String> arrayAdapterUni = new ArrayAdapter<>(context,R.layout.usertype_item,optionUniName);
             ((MaterialAutoCompleteTextView) textInputLayoutUniName.getEditText()).setAdapter(arrayAdapterUni);
 
-            TextInputLayout textInputLayout = holder.mCardView.findViewById(R.id.departmentdropdown);
+            TextInputLayout textInputLayout = itemView.findViewById(R.id.departmentdropdown);
             String []option = {"CSE","BBA","Economics","Bio Chemistry","Architecture","Pharmacy","EEE","Math","Physics"};
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(context,R.layout.usertype_item,option);
             ((MaterialAutoCompleteTextView) textInputLayout.getEditText()).setAdapter(arrayAdapter);
 
-
-            TextInputLayout textInputLayout1 = holder.mCardView.findViewById(R.id.dropdown);
+            TextInputLayout textInputLayout1 = itemView.findViewById(R.id.dropdown);
             String []option1 = {"UnderGraduate","MS","PhD","Post-Doc"};
             ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<>(context,R.layout.usertype_item,option1);
             ((MaterialAutoCompleteTextView) textInputLayout1.getEditText()).setAdapter(arrayAdapter1);
 
         }
-
-        // Return the size of your dataset (invoked by the layout manager)
-        @Override
-        public int getItemCount() {
-            return mDataset.length;
-        }
-
-        public String[][] getData() {
-            return data;
-        }
-
-//        public class ViewHolder extends RecyclerView.ViewHolder{
-//
-//        private TextInputEditText studentID;
-//        private MaterialAutoCompleteTextView uniName,department,level;
-//        private LinearLayout layout;
-//
-//        public ViewHolder(@NonNull View itemView) {
-//            super(itemView);
-//            studentID = itemView.findViewById(R.id.studentId);
-//            uniName = itemView.findViewById(R.id.uniName);
-//            department = itemView.findViewById(R.id.department);
-//            level = itemView.findViewById(R.id.level);
-//            layout = itemView.findViewById(R.id.layout);
-//
-//
-            }
-//    }
-//}
+    }
+}

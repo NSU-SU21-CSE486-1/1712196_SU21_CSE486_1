@@ -20,12 +20,7 @@
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/UserHomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/UserHomeFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/clubProfileFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/clubProfileFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/fragment_clubs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/fragment_clubs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Activity/FinalActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Activity/FinalActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Activity/ProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Activity/ProfileActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Activity/SecondActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Activity/UniversityAffiliationActivity.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Adapter/ItemAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Adapter/ItemAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Adapter/UniAffiliationAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Adapter/UniAffiliationAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Fragment/FirstTabFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Fragment/FirstTabFragment.java" afterDir="false" />
@@ -33,7 +28,6 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Fragment/ThirdTabFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/Fragment/ThirdTabFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project02/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_final.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_profile.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_second_tab.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_second_tab.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_third_tab.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_third_tab.xml" afterDir="false" />
     </list>
@@ -222,10 +216,10 @@
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
     <state x="556" y="254" width="798" height="605" key="Downloadable.Font.Dialog.Size/0.26.1920.1054@0.26.1920.1054" timestamp="1625760237703" />
-    <state x="684" y="257" width="530" height="605" key="FileChooserDialogImpl" timestamp="1628702098992">
+    <state x="684" y="257" width="530" height="605" key="FileChooserDialogImpl" timestamp="1629481604744">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state x="684" y="257" width="530" height="605" key="FileChooserDialogImpl/0.26.1920.1054@0.26.1920.1054" timestamp="1628702098992" />
+    <state x="684" y="257" width="530" height="605" key="FileChooserDialogImpl/0.26.1920.1054@0.26.1920.1054" timestamp="1629481604744" />
     <state width="1863" height="475" key="GridCell.Tab.0.bottom" timestamp="1629480484603">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
