@@ -1,6 +1,7 @@
 package com.istiaksaif.Project02.Fragment;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -19,16 +20,32 @@ import android.widget.DatePicker;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.istiaksaif.Project02.Activity.FinalActivity;
+import com.istiaksaif.Project02.Activity.ProfileActivity;
 import com.istiaksaif.Project02.Activity.UniversityAffiliationActivity;
 import com.istiaksaif.Project02.MainActivity;
 import com.istiaksaif.Project02.R;
+import com.istiaksaif.Project02.Utils.User;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Calendar;
+
+import static com.istiaksaif.Project02.Activity.ProfileActivity.User_Key;
+import static com.istiaksaif.Project02.Activity.ProfileActivity.fileContent;
+import static com.istiaksaif.Project02.Activity.ProfileActivity.filePath;
+import static com.istiaksaif.Project02.Activity.ProfileActivity.filename;
+import static com.istiaksaif.Project02.Activity.ProfileActivity.submitButton;
 
 public class FirstTabFragment extends Fragment {
 
     public static TextInputEditText fullName,dateOfBirth,nid,bloodGroup;
-    private Button nextButton;
     private String date;
 
     @Override
@@ -52,16 +69,9 @@ public class FirstTabFragment extends Fragment {
         });
         nid = view.findViewById(R.id.nid);
         bloodGroup = view.findViewById(R.id.bloodgroup);
-//        nextButton = view.findViewById(R.id.next_button);
-//        nextButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Info();
-//            }
-//        });
     }
 
-    private void Info() {
+    public void Info() {
         String FullName = fullName.getText().toString();
         String DateOfBirth = dateOfBirth.getText().toString();
         String NID = nid.getText().toString();
@@ -88,15 +98,28 @@ public class FirstTabFragment extends Fragment {
             return;
         }
 
-        Intent intent = new Intent(getActivity(), UniversityAffiliationActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putString("name",FullName);
-        bundle.putString("dateofbirth",DateOfBirth);
-        bundle.putString("nid",NID);
-        bundle.putString("bloodgroup",BloodGroup);
-        intent.putExtras(bundle);
-        startActivity(intent);
+//        User user = new User(FullName,DateOfBirth,NID,BloodGroup);
+//        ArrayList<User> arrayList = new ArrayList<>();
+//        arrayList.add(user);
+//        Toast.makeText(getActivity(),"done"+user,Toast.LENGTH_LONG).show();
+//        Intent intent = new Intent(getActivity(), FinalActivity.class);
+//        intent.putExtra(User_Key,new User(FullName,DateOfBirth,NID,BloodGroup));
+//        startActivity(intent);
+//
+//        try {
+//            FileOutputStream fileOutputStream = new FileOutputStream("userInfo.tmp");
+//            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+//            objectOutputStream.writeObject(user);
+//
+//            objectOutputStream.close();
+//            fileOutputStream.close();
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
+
     private DatePickerDialog.OnDateSetListener datepickerListener = new DatePickerDialog.OnDateSetListener() {
 
         @Override
@@ -111,6 +134,19 @@ public class FirstTabFragment extends Fragment {
         }
     };
 
+    private void writeToFile(Context _c, String _filename, String _data) {
+        File external = _c.getExternalFilesDir(null);
+        File file = new File(external, _filename);
+
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+
+            fos.write(_data.getBytes());
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
