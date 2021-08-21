@@ -4,11 +4,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.ClubsFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:background="@color/white_redis">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Clubs You Manage"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:textColor="@color/dark_blue"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ownClubRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Clubs you've Joined"
+                android:paddingLeft="10dp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:textColor="@color/dark_blue"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/addedClubRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Clubs Suggested"
+                android:paddingLeft="10dp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:textColor="@color/dark_blue"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/search"
+                    android:layout_alignParentEnd="true"
+                    android:paddingRight="10dp"/>
+            </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/sugClubRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"/>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>
