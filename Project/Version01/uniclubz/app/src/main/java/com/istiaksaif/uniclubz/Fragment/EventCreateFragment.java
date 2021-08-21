@@ -153,8 +153,8 @@ public class EventCreateFragment extends Fragment {
         layoutManager1.setOrientation(LinearLayoutManager.HORIZONTAL);
         timeRecyclerView1.setLayoutManager(layoutManager1);
 
-        timeModelList = new ArrayList<TimeModel>();
-        for(int i=0;i<=48;i++){
+        timeModelList = new ArrayList<>();
+        for(int i=0;i<=47;i++){
             TimeModel time = new TimeModel(optionTimeList[i]);
             timeModelList.add(time);
         }
@@ -315,6 +315,6 @@ public class EventCreateFragment extends Fragment {
         ((ClubActivity)getActivity()).setToolbar(toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
         ((ClubActivity)getActivity()).setText(clubName);
-//        ((ClubActivity)getActivity()).setimg(clubImg);
+        ((ClubActivity)getActivity()).setimg(clubImg);
     }
 }
