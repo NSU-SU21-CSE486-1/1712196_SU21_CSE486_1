@@ -20,6 +20,13 @@
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/UserHomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/UserHomeFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/clubProfileFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/clubProfileFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/fragment_clubs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/fragment_clubs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -214,22 +221,22 @@
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
     <state x="684" y="257" width="530" height="605" key="FileChooserDialogImpl/0.26.1920.1054@0.26.1920.1054" timestamp="1629481604744" />
-    <state width="1863" height="475" key="GridCell.Tab.0.bottom" timestamp="1629488072992">
+    <state width="1863" height="475" key="GridCell.Tab.0.bottom" timestamp="1629493252329">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state width="1863" height="475" key="GridCell.Tab.0.bottom/0.26.1920.1054@0.26.1920.1054" timestamp="1629488072992" />
-    <state width="1863" height="475" key="GridCell.Tab.0.center" timestamp="1629488072992">
+    <state width="1863" height="475" key="GridCell.Tab.0.bottom/0.26.1920.1054@0.26.1920.1054" timestamp="1629493252329" />
+    <state width="1863" height="475" key="GridCell.Tab.0.center" timestamp="1629493252327">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state width="1863" height="475" key="GridCell.Tab.0.center/0.26.1920.1054@0.26.1920.1054" timestamp="1629488072992" />
-    <state width="1863" height="475" key="GridCell.Tab.0.left" timestamp="1629488072992">
+    <state width="1863" height="475" key="GridCell.Tab.0.center/0.26.1920.1054@0.26.1920.1054" timestamp="1629493252327" />
+    <state width="1863" height="475" key="GridCell.Tab.0.left" timestamp="1629493252327">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state width="1863" height="475" key="GridCell.Tab.0.left/0.26.1920.1054@0.26.1920.1054" timestamp="1629488072992" />
-    <state width="1863" height="475" key="GridCell.Tab.0.right" timestamp="1629488072992">
+    <state width="1863" height="475" key="GridCell.Tab.0.left/0.26.1920.1054@0.26.1920.1054" timestamp="1629493252327" />
+    <state width="1863" height="475" key="GridCell.Tab.0.right" timestamp="1629493252328">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state width="1863" height="475" key="GridCell.Tab.0.right/0.26.1920.1054@0.26.1920.1054" timestamp="1629488072992" />
+    <state width="1863" height="475" key="GridCell.Tab.0.right/0.26.1920.1054@0.26.1920.1054" timestamp="1629493252328" />
     <state x="649" y="100" width="1271" height="912" key="SettingsEditor" timestamp="1629365579700">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
