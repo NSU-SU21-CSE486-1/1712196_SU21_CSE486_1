@@ -77,7 +77,7 @@ public class ClubActivity extends AppCompatActivity {
         getImageFunction = new ImageGetHelper(null,this);
 
         toolbar = findViewById(R.id.clubtoolbar);
-//        clubImage = findViewById(R.id.clubimg);
+        clubImage = findViewById(R.id.clubimage);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("");
@@ -124,19 +124,19 @@ public class ClubActivity extends AppCompatActivity {
         LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) layout4.getLayoutParams();
         layoutParams4.weight = 1.7f;
 
-        tabviewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                page.setTranslationX(page.getWidth()* -position);
-                if(position <= -1 || position >= 1){
-                    page.setAlpha(0);
-                }else if(position==0){
-                    page.setAlpha(1);
-                }else {
-                    page.setAlpha(1-Math.abs(position));
-                }
-            }
-        });
+//        tabviewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
+//            @Override
+//            public void transformPage(@NonNull View page, float position) {
+//                page.setTranslationX(page.getWidth()* -position);
+//                if(position <= -1 || position >= 1){
+//                    page.setAlpha(0);
+//                }else if(position==0){
+//                    page.setAlpha(1);
+//                }else {
+//                    page.setAlpha(1-Math.abs(position));
+//                }
+//            }
+//        });
 
         //clubName
         clubName = findViewById(R.id.clubname);
@@ -150,15 +150,14 @@ public class ClubActivity extends AppCompatActivity {
                     String clubimage = ""+dataSnapshot.child("clubImage").getValue();
 
                     clubName.setText(clubname);
-                    clubImage = toolbar.findViewById(R.id.clubimage);
 
                     try {
                         Picasso.get().load(clubimage).resize(320,320).into(clubImage);
                     }catch (Exception e){
                         Picasso.get().load(R.drawable.dropdown).into(clubImage);
                     }
-                    Drawable drawable = clubImage.getDrawable();
-                    toolbar.setBackground(drawable);
+//                    Drawable drawable = clubImage.getDrawable();
+//                    toolbar.setBackground(drawable);
                 }
             }
             @Override
@@ -257,9 +256,9 @@ public class ClubActivity extends AppCompatActivity {
         clubName.setVisibility(View.INVISIBLE);
         clubName.setMaxHeight(titleBarHeight);
     }
-//    public void setimg(ImageView clubImage){
-//        clubImage = findViewById(R.id.clubimg);
-//        clubImage.setVisibility(View.GONE);
-//    }
+    public void setimg(ImageView clubImage){
+        clubImage = findViewById(R.id.clubimage);
+        clubImage.setVisibility(View.GONE);
+    }
 
 }
