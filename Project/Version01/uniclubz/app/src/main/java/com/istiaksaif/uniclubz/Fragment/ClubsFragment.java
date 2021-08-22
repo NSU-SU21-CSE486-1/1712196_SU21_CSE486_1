@@ -22,8 +22,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.istiaksaif.uniclubz.Adaptar.clubJoinListAdapter;
 import com.istiaksaif.uniclubz.Adaptar.clubListAdapter;
 import com.istiaksaif.uniclubz.Model.ClubListItem;
+import com.istiaksaif.uniclubz.Model.ClubSugListItem;
 import com.istiaksaif.uniclubz.R;
 
 import java.util.ArrayList;
@@ -32,7 +34,9 @@ public class ClubsFragment extends Fragment {
 
     private RecyclerView adminClubRecyclerView,joinClubRecyclerView,clubRecyclerView;
     private clubListAdapter clubListAdapter;
+    private clubJoinListAdapter clubJoinListAdapter;
     private ArrayList<ClubListItem> clubItemArrayList;
+    private ArrayList<ClubSugListItem> clubSugListItemArrayList;
     private DatabaseReference clubItemDatabaseRef;
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private String uid = user.getUid();
@@ -41,41 +45,74 @@ public class ClubsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        clubItemDatabaseRef = FirebaseDatabase.getInstance().getReference();
+        clubItemArrayList = new ArrayList<>();
+
         adminClubRecyclerView = view.findViewById(R.id.ownClubRecycler);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         adminClubRecyclerView.setLayoutManager(layoutManager);
         adminClubRecyclerView.setHasFixedSize(true);
-
-//        joinClubRecyclerView = view.findViewById(R.id.addedClubRecycler);
-//        joinClubRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-//        joinClubRecyclerView.setHasFixedSize(true);
-//
-//        clubRecyclerView = view.findViewById(R.id.sugClubRecycler);
-//        clubRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-//        clubRecyclerView.setHasFixedSize(true);
-
-        clubItemDatabaseRef = FirebaseDatabase.getInstance().getReference();
-        clubItemArrayList = new ArrayList<>();
-
         GetDataFromFirebase();
+
+        joinClubRecyclerView = view.findViewById(R.id.addedClubRecycler);
+        joinClubRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        joinClubRecyclerView.setHasFixedSize(true);
+
+        clubRecyclerView = view.findViewById(R.id.sugClubRecycler);
+        clubRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        clubRecyclerView.setHasFixedSize(true);
+
+        clubSugListItemArrayList = new ArrayList<>();
+        GetData();
+        clubSugListItemArrayList.clear();
         ClearAll();
     }
 
-    private void GetDataFromFirebase() {
+    private void GetData() {
         Query query = clubItemDatabaseRef.child("ClubInfo");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                clubSugListItemArrayList.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    try {
+                        if(!snapshot.child("admin").getValue().toString().equals(uid)){
+                            ClubSugListItem clubSugListItem = new ClubSugListItem();
+                            clubSugListItem.setClubName(snapshot.child("clubName").getValue().toString());
+                            clubSugListItem.setImage(snapshot.child("clubImage").getValue().toString());
+                            clubSugListItem.setClubId(snapshot.child("clubId").getValue().toString());
+                            clubSugListItem.setAdmin(snapshot.child("admin").getValue().toString());
+                            clubSugListItemArrayList.add(clubSugListItem);
+                        }
+                    } catch (Exception e) {
+
+                    }
+                }
+                clubJoinListAdapter = new clubJoinListAdapter(getContext(), clubSugListItemArrayList);
+                clubRecyclerView.setAdapter(clubJoinListAdapter);
+                clubJoinListAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void GetDataFromFirebase() {
+        Query query = clubItemDatabaseRef.child("ClubInfo").orderByChild("admin").equalTo(uid);
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ClearAll();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    ClubListItem clubListItem = new ClubListItem();
                     try {
+                        ClubListItem clubListItem = new ClubListItem();
                         clubListItem.setClubName(snapshot.child("clubName").getValue().toString());
                         clubListItem.setImage(snapshot.child("clubImage").getValue().toString());
-//                        clubListItem.setStatus(snapshot.child("status").getValue().toString());
-                        String clubid = snapshot.child("clubId").getValue().toString();
-                        clubListItem.setClubId(clubid);
+                        clubListItem.setClubId(snapshot.child("clubId").getValue().toString());
                         clubItemArrayList.add(clubListItem);
 
                     } catch (Exception e) {

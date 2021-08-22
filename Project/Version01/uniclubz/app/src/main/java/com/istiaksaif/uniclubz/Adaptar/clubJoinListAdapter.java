@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,20 +16,28 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.istiaksaif.uniclubz.Activity.ClubActivity;
+import com.istiaksaif.uniclubz.Activity.UserClubHomeActivity;
 import com.istiaksaif.uniclubz.Model.ClubListItem;
+import com.istiaksaif.uniclubz.Model.ClubSugListItem;
 import com.istiaksaif.uniclubz.R;
 
 import java.util.ArrayList;
 
 
-public class clubListAdapter extends RecyclerView.Adapter<clubListAdapter.ViewHolder> {
+public class clubJoinListAdapter extends RecyclerView.Adapter<clubJoinListAdapter.ViewHolder> {
     private Context context;
-    private ArrayList<ClubListItem> mdata;
+    private ArrayList<ClubSugListItem> mdata;
 
-    public clubListAdapter(Context context, ArrayList<ClubListItem> mdata) {
+    public clubJoinListAdapter(Context context, ArrayList<ClubSugListItem> mdata) {
         this.context = context;
         this.mdata = mdata;
     }
@@ -49,10 +58,11 @@ public class clubListAdapter extends RecyclerView.Adapter<clubListAdapter.ViewHo
         holder.clubname.setText(mdata.get(position).getClubName());
 
         Glide.with(context).load(mdata.get(position).getImage()).placeholder(R.drawable.dropdown).into(holder.clubImage);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, ClubActivity.class);
+                Intent intent = new Intent(context, UserClubHomeActivity.class);
                 intent.putExtra("clubId",ClubId);
                 context.startActivity(intent);
             }
@@ -81,8 +91,8 @@ public class clubListAdapter extends RecyclerView.Adapter<clubListAdapter.ViewHo
             WindowManager window = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
             Display display = window.getDefaultDisplay();
             int displayWidth = display.getWidth();
-            layout.getLayoutParams().width = (displayWidth/9)*4;
-            joinButton.setVisibility(View.GONE);
+//            layout.getLayoutParams().width = (displayWidth/10)*4;
+//            joinButton.setVisibility(View.GONE);
         }
     }
 }
