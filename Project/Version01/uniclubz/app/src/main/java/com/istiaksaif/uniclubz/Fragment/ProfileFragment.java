@@ -44,10 +44,6 @@ import java.util.HashMap;
 
 import static android.app.Activity.RESULT_OK;
 
-/**
- * Created by Istiak Saif on 19/07/21.
- */
-
 public class ProfileFragment extends Fragment {
 
     private ImageGetHelper getImageFunction;
@@ -62,13 +58,12 @@ public class ProfileFragment extends Fragment {
     private ProgressDialog progressDialog,pro;
 
     private String profilePhoto;
-    private GoogleSignInClient googleSignInClient;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        getImageFunction = new ImageGetHelper(this);
+        getImageFunction = new ImageGetHelper(this,null);
 
         logoutButton = view.findViewById(R.id.logout);
         imageView = view.findViewById(R.id.profileimage);
@@ -218,8 +213,8 @@ public class ProfileFragment extends Fragment {
             }
             if(requestCode == getImageFunction.IMAGE_PICK_CAMERA_CODE){
                 try {
-                    uploadProfilePhoto(imageUri);
-                    imageView.setImageURI(imageUri);
+                    uploadProfilePhoto(getImageFunction.imageUri);
+                    imageView.setImageURI(getImageFunction.imageUri);
                 }catch (Exception e){
                    e.printStackTrace();
                 }
