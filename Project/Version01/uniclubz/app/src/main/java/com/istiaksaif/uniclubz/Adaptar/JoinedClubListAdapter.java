@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,26 +17,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-import com.istiaksaif.uniclubz.Activity.ClubActivity;
 import com.istiaksaif.uniclubz.Activity.UserClubHomeActivity;
-import com.istiaksaif.uniclubz.Model.ClubListItem;
+import com.istiaksaif.uniclubz.Model.ClubJoinedListItem;
 import com.istiaksaif.uniclubz.Model.ClubSugListItem;
 import com.istiaksaif.uniclubz.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
-public class clubJoinListAdapter extends RecyclerView.Adapter<clubJoinListAdapter.ViewHolder> {
+public class JoinedClubListAdapter extends RecyclerView.Adapter<JoinedClubListAdapter.ViewHolder> {
     private Context context;
-    private ArrayList<ClubSugListItem> mdata;
+    private ArrayList<ClubJoinedListItem> mdata;
 
-    public clubJoinListAdapter(Context context, ArrayList<ClubSugListItem> mdata) {
+    public JoinedClubListAdapter(Context context, ArrayList<ClubJoinedListItem> mdata) {
         this.context = context;
         this.mdata = mdata;
     }
@@ -56,8 +51,17 @@ public class clubJoinListAdapter extends RecyclerView.Adapter<clubJoinListAdapte
         String ClubId = mdata.get(position).getClubId();
 
         holder.clubname.setText(mdata.get(position).getClubName());
-
         Glide.with(context).load(mdata.get(position).getImage()).placeholder(R.drawable.dropdown).into(holder.clubImage);
+
+        if(mdata.get(position).getStatus().equals("pending")){
+            holder.joinButton.setText("pending");
+            holder.joinButton.setVisibility(View.VISIBLE);
+        }else if(mdata.get(position).getStatus().equals("confirm")){
+            holder.clubImage.setVisibility(View.VISIBLE);
+            holder.clubname.setVisibility(View.VISIBLE);
+            holder.joinButton.setText("Visit Group");
+            holder.joinButton.setVisibility(View.VISIBLE);
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +96,7 @@ public class clubJoinListAdapter extends RecyclerView.Adapter<clubJoinListAdapte
             Display display = window.getDefaultDisplay();
             int displayWidth = display.getWidth();
 //            layout.getLayoutParams().width = (displayWidth/10)*4;
-//            joinButton.setVisibility(View.GONE);
+            joinButton.setVisibility(View.GONE);
         }
     }
 }

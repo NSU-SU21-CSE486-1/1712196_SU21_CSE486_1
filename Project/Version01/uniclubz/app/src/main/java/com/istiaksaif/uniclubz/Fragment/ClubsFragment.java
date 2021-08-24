@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,8 +21,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.istiaksaif.uniclubz.Adaptar.clubJoinListAdapter;
-import com.istiaksaif.uniclubz.Adaptar.clubListAdapter;
+import com.istiaksaif.uniclubz.Adaptar.ClubSugListAdapter;
+import com.istiaksaif.uniclubz.Adaptar.ClubListAdapter;
+import com.istiaksaif.uniclubz.Adaptar.JoinedClubListAdapter;
+import com.istiaksaif.uniclubz.Model.ClubJoinedListItem;
 import com.istiaksaif.uniclubz.Model.ClubListItem;
 import com.istiaksaif.uniclubz.Model.ClubSugListItem;
 import com.istiaksaif.uniclubz.R;
@@ -33,10 +34,12 @@ import java.util.ArrayList;
 public class ClubsFragment extends Fragment {
 
     private RecyclerView adminClubRecyclerView,joinClubRecyclerView,clubRecyclerView;
-    private clubListAdapter clubListAdapter;
-    private clubJoinListAdapter clubJoinListAdapter;
+    private ClubListAdapter clubListAdapter;
+    private ClubSugListAdapter ClubSugListAdapter;
+    private JoinedClubListAdapter joinedClubListAdapter;
     private ArrayList<ClubListItem> clubItemArrayList;
     private ArrayList<ClubSugListItem> clubSugListItemArrayList;
+    private ArrayList<ClubJoinedListItem> clubJoinedListItemArrayList;
     private DatabaseReference clubItemDatabaseRef;
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private String uid = user.getUid();
@@ -59,6 +62,9 @@ public class ClubsFragment extends Fragment {
         joinClubRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
         joinClubRecyclerView.setHasFixedSize(true);
 
+        GetDataJoinedClub();
+        clubJoinedListItemArrayList = new ArrayList<>();
+
         clubRecyclerView = view.findViewById(R.id.sugClubRecycler);
         clubRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
         clubRecyclerView.setHasFixedSize(true);
@@ -69,6 +75,44 @@ public class ClubsFragment extends Fragment {
         ClearAll();
     }
 
+    private void GetDataJoinedClub() {
+        Query query = clubItemDatabaseRef.child("ClubInfo");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                clubJoinedListItemArrayList.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    try {
+                        if(!snapshot.child("admin").getValue().toString().equals(uid)) {
+                            if (snapshot.child("membersList").child(uid).exists()) {
+                                ClubJoinedListItem clubJoinedListItem = new ClubJoinedListItem();
+                                clubJoinedListItem.setClubName(snapshot.child("clubName").getValue().toString());
+                                clubJoinedListItem.setImage(snapshot.child("clubImage").getValue().toString());
+                                clubJoinedListItem.setClubId(snapshot.child("clubId").getValue().toString());
+                                clubJoinedListItem.setAdmin(snapshot.child("admin").getValue().toString());
+                                if (snapshot.child("membersList").child(uid).exists()) {
+                                    clubJoinedListItem.setStatus(snapshot.child("membersList").child(uid).child("status").getValue().toString());
+                                } else {
+                                    clubJoinedListItem.setStatus("");
+                                }
+                                clubJoinedListItemArrayList.add(clubJoinedListItem);
+                            }
+                        }
+                    } catch (Exception e) {
+
+                    }
+                }
+                joinedClubListAdapter = new JoinedClubListAdapter(getContext(), clubJoinedListItemArrayList);
+                joinClubRecyclerView.setAdapter(joinedClubListAdapter);
+                joinedClubListAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
     private void GetData() {
         Query query = clubItemDatabaseRef.child("ClubInfo");
         query.addValueEventListener(new ValueEventListener() {
@@ -77,21 +121,48 @@ public class ClubsFragment extends Fragment {
                 clubSugListItemArrayList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     try {
-                        if(!snapshot.child("admin").getValue().toString().equals(uid)){
-                            ClubSugListItem clubSugListItem = new ClubSugListItem();
-                            clubSugListItem.setClubName(snapshot.child("clubName").getValue().toString());
-                            clubSugListItem.setImage(snapshot.child("clubImage").getValue().toString());
-                            clubSugListItem.setClubId(snapshot.child("clubId").getValue().toString());
-                            clubSugListItem.setAdmin(snapshot.child("admin").getValue().toString());
-                            clubSugListItemArrayList.add(clubSugListItem);
+                        ClubSugListItem clubSugListItem = new ClubSugListItem();
+                        if(!snapshot.child("admin").getValue().toString().equals(uid)) {
+                            if (!snapshot.child("membersList").exists()){
+                                clubSugListItem.setClubName(snapshot.child("clubName").getValue().toString());
+                                clubSugListItem.setImage(snapshot.child("clubImage").getValue().toString());
+                                clubSugListItem.setClubId(snapshot.child("clubId").getValue().toString());
+                                clubSugListItem.setAdmin(snapshot.child("admin").getValue().toString());
+
+                                    clubSugListItem.setStatus("");
+
+                                clubSugListItemArrayList.add(clubSugListItem);
+                            }else if(snapshot.child("membersList").exists()) {
+                                if(!snapshot.child("membersList").child(uid).exists()){
+                                    clubSugListItem.setClubName(snapshot.child("clubName").getValue().toString());
+                                    clubSugListItem.setImage(snapshot.child("clubImage").getValue().toString());
+                                    clubSugListItem.setClubId(snapshot.child("clubId").getValue().toString());
+                                    clubSugListItem.setAdmin(snapshot.child("admin").getValue().toString());
+
+                                    clubSugListItem.setStatus("");
+
+                                    clubSugListItemArrayList.add(clubSugListItem);
+                                } else if (!snapshot.child("membersList").child(uid).child("status").getValue().toString().equals("confirm")) {
+                                    clubSugListItem.setClubName(snapshot.child("clubName").getValue().toString());
+                                    clubSugListItem.setImage(snapshot.child("clubImage").getValue().toString());
+                                    clubSugListItem.setClubId(snapshot.child("clubId").getValue().toString());
+                                    clubSugListItem.setAdmin(snapshot.child("admin").getValue().toString());
+                                    if (snapshot.child("membersList").child(uid).exists()) {
+                                        clubSugListItem.setStatus(snapshot.child("membersList").child(uid).child("status").getValue().toString());
+                                    } else {
+                                        clubSugListItem.setStatus("");
+                                    }
+                                    clubSugListItemArrayList.add(clubSugListItem);
+                                }
+                            }
                         }
                     } catch (Exception e) {
 
                     }
                 }
-                clubJoinListAdapter = new clubJoinListAdapter(getContext(), clubSugListItemArrayList);
-                clubRecyclerView.setAdapter(clubJoinListAdapter);
-                clubJoinListAdapter.notifyDataSetChanged();
+                ClubSugListAdapter = new ClubSugListAdapter(getContext(), clubSugListItemArrayList);
+                clubRecyclerView.setAdapter(ClubSugListAdapter);
+                ClubSugListAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -119,7 +190,7 @@ public class ClubsFragment extends Fragment {
 
                     }
                 }
-                clubListAdapter = new clubListAdapter(getContext(), clubItemArrayList);
+                clubListAdapter = new ClubListAdapter(getContext(), clubItemArrayList);
                 adminClubRecyclerView.setAdapter(clubListAdapter);
                 clubListAdapter.notifyDataSetChanged();
             }

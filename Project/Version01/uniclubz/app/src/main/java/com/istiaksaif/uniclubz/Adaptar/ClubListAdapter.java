@@ -15,8 +15,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.istiaksaif.uniclubz.Activity.ClubActivity;
 import com.istiaksaif.uniclubz.Model.ClubListItem;
 import com.istiaksaif.uniclubz.R;
@@ -24,11 +22,11 @@ import com.istiaksaif.uniclubz.R;
 import java.util.ArrayList;
 
 
-public class clubListAdapter extends RecyclerView.Adapter<clubListAdapter.ViewHolder> {
+public class ClubListAdapter extends RecyclerView.Adapter<ClubListAdapter.ViewHolder> {
     private Context context;
     private ArrayList<ClubListItem> mdata;
 
-    public clubListAdapter(Context context, ArrayList<ClubListItem> mdata) {
+    public ClubListAdapter(Context context, ArrayList<ClubListItem> mdata) {
         this.context = context;
         this.mdata = mdata;
     }
