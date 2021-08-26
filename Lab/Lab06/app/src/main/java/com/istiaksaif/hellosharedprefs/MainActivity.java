@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private final String COLOR_KEY = "color";
     private SharedPreferences mPreferences;
 
-//    private String sharedPrefFile = "com.istiaksaif.hellosharedprefs";
     private userSetting uSetting;
 
 
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,SecondActivity.class);
-                mPreferences.getString(userSetting.Custom_Theme,uSetting.getCustomTheme());
                 startActivity(intent);
             }
         });
