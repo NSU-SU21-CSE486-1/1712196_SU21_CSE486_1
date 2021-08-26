@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".SecondActivity"
+    android:id="@+id/theme">
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textSize="30dp"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:layout_gravity="center"/>
+    <TextView
+        android:id="@+id/light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Light"
+        android:textSize="20dp"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="20dp"
+        android:gravity="center"/>
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/togolbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/light"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"/>
+
+
+
+</RelativeLayout>
