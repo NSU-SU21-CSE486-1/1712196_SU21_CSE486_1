@@ -12,9 +12,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -26,18 +29,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.istiaksaif.uniclubz.Adaptar.EditUniAffiliationAdapter;
+import com.istiaksaif.uniclubz.Model.EditUniAffiliationItem;
 import com.istiaksaif.uniclubz.R;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.istiaksaif.uniclubz.Utils.optionUniName.optionUniName;
 
 public class UniversityAffiliationActivity extends AppCompatActivity {
 
-    private TextInputEditText studentID;
-    private MaterialAutoCompleteTextView uniName,autoCompleteTextView,autoCompleteTextView1;
-    private Button nextButton;
+    public static Button nextButton;
     private Toolbar toolBar;
+
+    public static FloatingActionButton fab;
+    private RecyclerView recyclerView;
+    private EditUniAffiliationAdapter editUniAffiliationAdapter;
+    private ArrayList<EditUniAffiliationItem> itemList;
 
     private DatabaseReference databaseReference;
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -65,105 +74,50 @@ public class UniversityAffiliationActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
 
-        studentID = findViewById(R.id.studentId);
+        fab = (FloatingActionButton) findViewById(R.id.floatingButtonAdd);
+        fab.bringToFront();
+
+        recyclerView = findViewById(R.id.uniaffiliationrecycle);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        itemList = new ArrayList<>();
+        EditUniAffiliationItem ListItem = new EditUniAffiliationItem();
+        ListItem.setlOpen("increase");
+        itemList.add(ListItem);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditUniAffiliationItem ListItem = new EditUniAffiliationItem();
+                ListItem.setlOpen("increase");
+                itemList.add(ListItem);
+                editUniAffiliationAdapter.notifyDataSetChanged();
+            }
+        });
+
+        editUniAffiliationAdapter = new EditUniAffiliationAdapter(this,itemList);
+        recyclerView.setAdapter(editUniAffiliationAdapter);
+        editUniAffiliationAdapter.notifyDataSetChanged();
+
         nextButton = findViewById(R.id.next_button);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Info();
-            }
-        });
-
-        uniName = findViewById(R.id.uniName);
-        TextInputLayout textInputLayoutUniName = findViewById(R.id.uninamelayout);
-//        String []optionUniName = {"North South University","East West University","Dhaka University"
-//                ,"BRAC University","AIUB","IUB","Shahjalal University of Science and Technology",
-//                "Rajshahi University of Engineering & Technology","RU","Deffordial University"};
-        ArrayAdapter<String> arrayAdapterUni = new ArrayAdapter<>(this,R.layout.usertype_item,optionUniName);
-        ((MaterialAutoCompleteTextView) textInputLayoutUniName.getEditText()).setAdapter(arrayAdapterUni);
-
-        autoCompleteTextView = findViewById(R.id.department);
-        TextInputLayout textInputLayout = findViewById(R.id.departmentdropdown);
-        String []option = {"CSE","BBA","Economics","Bio Chemistry","Architecture","Pharmacy","EEE","Math","Physics"};
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,R.layout.usertype_item,option);
-        ((MaterialAutoCompleteTextView) textInputLayout.getEditText()).setAdapter(arrayAdapter);
-
-
-        autoCompleteTextView1 = findViewById(R.id.level);
-        TextInputLayout textInputLayout1 = findViewById(R.id.dropdown);
-        String []option1 = {"UnderGraduate","MS","PhD","Post-Doc"};
-        ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<>(this,R.layout.usertype_item,option1);
-        ((MaterialAutoCompleteTextView) textInputLayout1.getEditText()).setAdapter(arrayAdapter1);
-
-        Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot:snapshot.getChildren()) {
-                    String uniname = ""+dataSnapshot.child("UniName").getValue();
-                    String dep = ""+dataSnapshot.child("department").getValue();
-                    String level = ""+dataSnapshot.child("level").getValue();
-                    String receivenstudentid = ""+dataSnapshot.child("studentId").getValue();
-
-                    uniName.setText(uniname);
-                    autoCompleteTextView.setText(dep);
-                    autoCompleteTextView1.setText(level);
-                    studentID.setText(receivenstudentid);
+                for (int i = 0; i <  EditUniAffiliationAdapter.mdata.size(); i++) {
+                    String unique = databaseReference.child(uid).push().getKey();
+                    String uniName = EditUniAffiliationAdapter.mdata.get(i).getUniName();
+                    String STUDENTID = EditUniAffiliationAdapter.mdata.get(i).getId();
+                    String Department = EditUniAffiliationAdapter.mdata.get(i).getDepartment();
+                    String StudentLevel = EditUniAffiliationAdapter.mdata.get(i).getLevel();
+                    HashMap<String, Object> result = new HashMap<>();
+                    result.put("UniName", uniName);
+                    result.put("studentId", STUDENTID);
+                    result.put("department", Department);
+                    result.put("level", StudentLevel);
+                    databaseReference.child(uid).child("UniAffiliation").child(unique).updateChildren(result);
                 }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(UniversityAffiliationActivity.this,"Some Thing Wrong", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        });
-
-    }
-
-    private void Info() {
-        String UNINAME = uniName.getText().toString();
-        String STUDENTID = studentID.getText().toString();
-        String Department = autoCompleteTextView.getText().toString();
-        String StudentLevel = autoCompleteTextView1.getText().toString();
-
-        if (TextUtils.isEmpty(UNINAME)){
-            Toast.makeText(UniversityAffiliationActivity.this, "please enter your University Name", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        else if (TextUtils.isEmpty(STUDENTID)){
-            Toast.makeText(UniversityAffiliationActivity.this, "please enter Your ID", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        else if (TextUtils.isEmpty(Department)){
-            Toast.makeText(UniversityAffiliationActivity.this, "please enter Department", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        else if (TextUtils.isEmpty(StudentLevel)){
-            Toast.makeText(UniversityAffiliationActivity.this, "please enter your study Level", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        progressDialog.show();
-        HashMap<String, Object> result = new HashMap<>();
-        result.put("UniName", UNINAME);
-        result.put("studentId", STUDENTID);
-        result.put("department", Department);
-        result.put("level", StudentLevel);
-
-
-        databaseReference.child(uid).updateChildren(result)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        progressDialog.dismiss();
-                        finish();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                progressDialog.dismiss();
-                Toast.makeText(UniversityAffiliationActivity.this, "Error ", Toast.LENGTH_SHORT).show();
-                finish();
             }
         });
     }

@@ -16,12 +16,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.istiaksaif.uniclubz.Activity.EditPersonalInfoActivity;
 import com.istiaksaif.uniclubz.Activity.UniversityAffiliationActivity;
+import com.istiaksaif.uniclubz.Adaptar.UniAffiliationRetriveAdapter;
+import com.istiaksaif.uniclubz.Model.EditUniAffiliationItem;
 import com.istiaksaif.uniclubz.R;
 import com.istiaksaif.uniclubz.Utils.ImageGetHelper;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -40,6 +43,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import static android.app.Activity.RESULT_OK;
@@ -49,13 +53,16 @@ public class ProfileFragment extends Fragment {
     private ImageGetHelper getImageFunction;
     private ImageView logoutButton,imageView;
     private TextView nid,fullName,email,phone,personalinfo,uniAffilitation,DOB,BloodGroup;
-    private TextView uniDep,programLevel,studentId;
+    public static TextView uniDep;
     private DatabaseReference databaseReference;
     private StorageReference storageReference;
     private Uri imageUri;
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private String uid = user.getUid();
     private ProgressDialog progressDialog,pro;
+    private RecyclerView uniRecycler;
+    private ArrayList<EditUniAffiliationItem> itemList;
+    private UniAffiliationRetriveAdapter uniAffiliationRetriveAdapter;
 
     private String profilePhoto;
 
@@ -76,19 +83,27 @@ public class ProfileFragment extends Fragment {
         personalinfo = view.findViewById(R.id.personalinfo);
         uniAffilitation = view.findViewById(R.id.uniaff);
         uniDep = view.findViewById(R.id.unidep);
-        studentId = view.findViewById(R.id.studentid);
-        programLevel = view.findViewById(R.id.level);
 
+        uniRecycler = view.findViewById(R.id.uniaffrecycle);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        uniRecycler.setLayoutManager(layoutManager);
+        uniRecycler.setHasFixedSize(true);
+
+        itemList = new ArrayList<>();
 
         progressDialog = new ProgressDialog(getActivity());
 
         databaseReference = FirebaseDatabase.getInstance().getReference("users");
         storageReference = FirebaseStorage.getInstance().getReference();
 
+        itemList.clear();
+
         Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                itemList.clear();
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()) {
                     String name = ""+dataSnapshot.child("name").getValue();
                     String dob = "DOB :  "+dataSnapshot.child("dob").getValue();
@@ -98,10 +113,6 @@ public class ProfileFragment extends Fragment {
                     String receivephone = ""+dataSnapshot.child("phone").getValue();
                     String receivenid = "NID :   "+dataSnapshot.child("nid").getValue();
 
-                    String uniNameDep = "Studies "+dataSnapshot.child("department").getValue()+" at "+dataSnapshot.child("UniName").getValue();
-                    String level = ""+dataSnapshot.child("level").getValue();
-                    String receivenstudentid = ""+dataSnapshot.child("studentId").getValue();
-
                     fullName.setText(name);
                     DOB.setText(dob);
                     BloodGroup.setText(blood);
@@ -109,9 +120,19 @@ public class ProfileFragment extends Fragment {
                     phone.setText(receivephone);
                     nid.setText(receivenid);
 
-                    uniDep.setText(uniNameDep);
-                    programLevel.setText(level);
-                    studentId.setText(receivenstudentid);
+                    try {
+                        for (DataSnapshot snapshot1:dataSnapshot.child("UniAffiliation").getChildren()){
+                            EditUniAffiliationItem ListItem = new EditUniAffiliationItem();
+                            ListItem.setUniName(snapshot1.child("UniName").getValue().toString());
+                            ListItem.setId(snapshot1.child("studentId").getValue().toString());
+                            ListItem.setDepartment(snapshot1.child("department").getValue().toString());
+                            ListItem.setLevel(snapshot1.child("level").getValue().toString());
+
+                            itemList.add(ListItem);
+                        }
+
+                    }catch (Exception e) {
+                    }
 
                     try {
                         Picasso.get().load(img).resize(320,320).into(imageView);
@@ -119,6 +140,9 @@ public class ProfileFragment extends Fragment {
                         Picasso.get().load(R.drawable.dropdown).into(imageView);
                     }
                 }
+                uniAffiliationRetriveAdapter = new UniAffiliationRetriveAdapter(getActivity(), itemList);
+                uniRecycler.setAdapter(uniAffiliationRetriveAdapter);
+                uniAffiliationRetriveAdapter.notifyDataSetChanged();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -149,58 +173,7 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
     }
-
-//    private void showMoreUpdating(String key) {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//        builder.setTitle("Update "+ key);
-//        LinearLayout linearLayout = new LinearLayout(getActivity());
-//        linearLayout.setOrientation(LinearLayout.VERTICAL);
-//        linearLayout.setPadding(10,10,10,10);
-//        TextInputEditText editText = new TextInputEditText(getActivity());
-//        editText.setHint("Enter "+key);
-//        linearLayout.addView(editText);
-//
-//        builder.setView(linearLayout);
-//        builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                String value = editText.getText().toString().trim();
-//                if(!TextUtils.isEmpty(value)){
-//                    progressDialog.show();
-//                    HashMap<String, Object> result = new HashMap<>();
-//                    result.put(key, value);
-//
-//                    databaseReference.child(uid).updateChildren(result)
-//                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                @Override
-//                                public void onSuccess(Void aVoid) {
-//                                    progressDialog.dismiss();
-//                                    Toast.makeText(getActivity(),"Updating "+key, Toast.LENGTH_SHORT).show();
-//                                }
-//                            }).addOnFailureListener(new OnFailureListener() {
-//                        @Override
-//                        public void onFailure(@NonNull Exception e) {
-//                            progressDialog.dismiss();
-//                            Toast.makeText(getActivity(),"Error ", Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
-//
-//                }else {
-//                    Toast.makeText(getActivity(),"Please Enter "+key, Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-//        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                progressDialog.dismiss();
-//            }
-//        });
-//
-//        builder.create().show();
-//    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

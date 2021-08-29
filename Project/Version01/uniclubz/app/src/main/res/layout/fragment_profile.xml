@@ -128,28 +128,12 @@
                         android:textSize="16dp"
                         android:fontFamily="@font/poppins_medium"
                         android:drawableEnd="@drawable/pen"/>
-                    <TextView
-                        android:id="@+id/studentid"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/uniaffrecycle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:text=""
-                        android:textColor="@color/dark_blue"
-                        android:gravity="center_vertical"
-                        android:textSize="14dp"
-                        android:fontFamily="@font/poppins"/>
-
-                    <TextView
-                        android:id="@+id/level"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:text=""
-                        android:textColor="@color/dark_blue"
-                        android:gravity="center_vertical"
-                        android:textSize="14dp"
-                        android:fontFamily="@font/poppins"/>
-
+                        android:orientation="vertical"
+                        android:layout_marginBottom="5dp"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"

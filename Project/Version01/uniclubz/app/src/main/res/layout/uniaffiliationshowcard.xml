@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/white_redis"/>
+    <TextView
+        android:id="@+id/prouniname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text=""
+        android:textColor="@color/dark_blue"
+        android:gravity="center_vertical"
+        android:textSize="14dp"
+        android:fontFamily="@font/poppins"/>
+    <TextView
+        android:id="@+id/prostudentid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text=""
+        android:textColor="@color/dark_blue"
+        android:gravity="center_vertical"
+        android:textSize="14dp"
+        android:fontFamily="@font/poppins"/>
+
+    <TextView
+        android:id="@+id/prodep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text=""
+        android:textColor="@color/dark_blue"
+        android:gravity="center_vertical"
+        android:textSize="14dp"
+        android:fontFamily="@font/poppins"/>
+
+    <TextView
+        android:id="@+id/prolevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text=""
+        android:textColor="@color/dark_blue"
+        android:gravity="center_vertical"
+        android:textSize="14dp"
+        android:fontFamily="@font/poppins"/>
+</LinearLayout>
