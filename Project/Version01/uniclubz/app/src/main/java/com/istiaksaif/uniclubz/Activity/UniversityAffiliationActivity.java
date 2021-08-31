@@ -30,8 +30,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.istiaksaif.uniclubz.Adaptar.EditUniAffiliationAdapter;
+import com.istiaksaif.uniclubz.Adaptar.UniAffiliationRetriveAdapter;
 import com.istiaksaif.uniclubz.Model.EditUniAffiliationItem;
 import com.istiaksaif.uniclubz.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -86,6 +88,34 @@ public class UniversityAffiliationActivity extends AppCompatActivity {
         EditUniAffiliationItem ListItem = new EditUniAffiliationItem();
         ListItem.setlOpen("increase");
         itemList.add(ListItem);
+        Query query = databaseReference.orderByChild("email").equalTo(user.getEmail());
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                itemList.clear();
+                for(DataSnapshot dataSnapshot:snapshot.getChildren()) {
+                    try {
+                        for (DataSnapshot snapshot1:dataSnapshot.child("UniAffiliation").getChildren()){
+                            EditUniAffiliationItem ListItem = new EditUniAffiliationItem();
+                            ListItem.setUniName(snapshot1.child("UniName").getValue().toString());
+                            ListItem.setId(snapshot1.child("studentId").getValue().toString());
+                            ListItem.setDepartment(snapshot1.child("department").getValue().toString());
+                            ListItem.setLevel(snapshot1.child("level").getValue().toString());
+                            itemList.add(ListItem);
+                        }
+
+                    }catch (Exception e) {
+                    }
+                }
+                editUniAffiliationAdapter = new EditUniAffiliationAdapter(UniversityAffiliationActivity.this, itemList);
+                recyclerView.setAdapter(editUniAffiliationAdapter);
+                editUniAffiliationAdapter.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(UniversityAffiliationActivity.this,"Some Thing Wrong", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,12 +135,13 @@ public class UniversityAffiliationActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (int i = 0; i <  EditUniAffiliationAdapter.mdata.size(); i++) {
+                databaseReference.child(uid).child("UniAffiliation").removeValue();
+                for (int i = 0; i <  editUniAffiliationAdapter.mdata.size(); i++) {
                     String unique = databaseReference.child(uid).push().getKey();
-                    String uniName = EditUniAffiliationAdapter.mdata.get(i).getUniName();
-                    String STUDENTID = EditUniAffiliationAdapter.mdata.get(i).getId();
-                    String Department = EditUniAffiliationAdapter.mdata.get(i).getDepartment();
-                    String StudentLevel = EditUniAffiliationAdapter.mdata.get(i).getLevel();
+                    String uniName = editUniAffiliationAdapter.mdata.get(i).getUniName();
+                    String STUDENTID = editUniAffiliationAdapter.mdata.get(i).getId();
+                    String Department = editUniAffiliationAdapter.mdata.get(i).getDepartment();
+                    String StudentLevel = editUniAffiliationAdapter.mdata.get(i).getLevel();
                     HashMap<String, Object> result = new HashMap<>();
                     result.put("UniName", uniName);
                     result.put("studentId", STUDENTID);
