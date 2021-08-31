@@ -135,7 +135,11 @@ public class ImageGetHelper {
     public void pickFromGallery() {
         Intent galleryIntent = new Intent(Intent.ACTION_PICK);
         galleryIntent.setType("image/*");
-        fragment.startActivityForResult(galleryIntent,IMAGE_PICK_GALLERY_CODE);
+        if (activity==null) {
+            fragment.startActivityForResult(galleryIntent, IMAGE_PICK_GALLERY_CODE);
+        }else {
+            activity.startActivityForResult(galleryIntent, IMAGE_PICK_GALLERY_CODE);
+        }
     }
 
 
