@@ -15,6 +15,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -33,6 +34,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.istiaksaif.uniclubz.Adaptar.TabViewPagerAdapter;
@@ -50,9 +52,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 
-/**
- * Istiak Saif on 27/07/21.
- */
 public class ClubActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
@@ -65,16 +64,21 @@ public class ClubActivity extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
     private StorageReference storageReference;
-    private String profilePhoto;
+    private String clubPhoto;
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private String uid = user.getUid();
+    private Intent intent;
+    private String clubId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_club);
 
-        getImageFunction = new ImageGetHelper(null,this);
+        intent = getIntent();
+        clubId = intent.getStringExtra("clubId");
+
+        getImageFunction = new ImageGetHelper(null,ClubActivity.this);
 
         toolbar = findViewById(R.id.clubtoolbar);
         clubImage = findViewById(R.id.clubimage);
@@ -123,25 +127,12 @@ public class ClubActivity extends AppCompatActivity {
         LinearLayout layout4 = ((LinearLayout) ((LinearLayout) tabLayout.getChildAt(0)).getChildAt(4));
         LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) layout4.getLayoutParams();
         layoutParams4.weight = 1.7f;
-
-//        tabviewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
-//            @Override
-//            public void transformPage(@NonNull View page, float position) {
-//                page.setTranslationX(page.getWidth()* -position);
-//                if(position <= -1 || position >= 1){
-//                    page.setAlpha(0);
-//                }else if(position==0){
-//                    page.setAlpha(1);
-//                }else {
-//                    page.setAlpha(1-Math.abs(position));
-//                }
-//            }
-//        });
+        
 
         //clubName
         clubName = findViewById(R.id.clubname);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("ClubInfo");
-        Query query = databaseReference.orderByChild("admin").equalTo(uid);
+        Query query = databaseReference.orderByChild("clubId").equalTo(clubId);
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -150,14 +141,11 @@ public class ClubActivity extends AppCompatActivity {
                     String clubimage = ""+dataSnapshot.child("clubImage").getValue();
 
                     clubName.setText(clubname);
-
                     try {
                         Picasso.get().load(clubimage).resize(320,320).into(clubImage);
                     }catch (Exception e){
                         Picasso.get().load(R.drawable.dropdown).into(clubImage);
                     }
-//                    Drawable drawable = clubImage.getDrawable();
-//                    toolbar.setBackground(drawable);
                 }
             }
             @Override
@@ -166,13 +154,15 @@ public class ClubActivity extends AppCompatActivity {
                 finish();
             }
         });
-//        //clubImage
-//        toolbar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                getImageFunction.pickFromGallery();
-//            }
-//        });
+        //clubImage
+        storageReference = FirebaseStorage.getInstance().getReference();
+        clubImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clubPhoto = "clubImage";
+                getImageFunction.pickFromGallery();
+            }
+        });
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -194,7 +184,7 @@ public class ClubActivity extends AppCompatActivity {
         bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
         byte[] fileInBytes = baos.toByteArray();
 
-        String filePathName = profilePhoto+"_"+uid;
+        String filePathName = clubPhoto+"_"+clubId;
         StorageReference storageReference1 = storageReference.child(filePathName);
 
 //        pro = new ProgressDialog(getContext());
@@ -210,9 +200,9 @@ public class ClubActivity extends AppCompatActivity {
                 Uri downloadUri = uriTask.getResult();
                 if(uriTask.isSuccessful()){
                     HashMap<String, Object> results = new HashMap<>();
-                    results.put(profilePhoto,downloadUri.toString());
+                    results.put(clubPhoto,downloadUri.toString());
 
-                    databaseReference.child(uid).updateChildren(results)
+                    databaseReference.child(clubId).updateChildren(results)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
@@ -259,6 +249,13 @@ public class ClubActivity extends AppCompatActivity {
     public void setimg(ImageView clubImage){
         clubImage = findViewById(R.id.clubimage);
         clubImage.setVisibility(View.GONE);
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch(item.getItemId()){
+            case android.R.id.home:
+                finish();
+
+        }return true;
     }
 
 }

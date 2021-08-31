@@ -4,42 +4,51 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:id="@+id/rootlayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Activity.ClubActivity">
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
-        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:elevation="0dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fitsSystemWindows="true">
+            android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/clubimage"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:src="@drawable/club"
-                android:fitsSystemWindows="true"
                 android:adjustViewBounds="true"
                 android:scaleType="fitXY"/>
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/clubtoolbar"
                 android:layout_width="match_parent"
+                android:layout_marginTop="30dp"
                 android:layout_height="50dp"
                 android:background="@android:color/transparent"
-                app:contentInsetLeft="0dp"
-                android:fitsSystemWindows="true"/>
+                app:contentInsetLeft="0dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="edit"
+                android:textSize="14dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:gravity="center"
+                android:textColor="@color/dark"
+                android:layout_marginTop="30dp"
+                android:background="@android:color/transparent"
+                android:textAllCaps="true"/>
         </RelativeLayout>
         <TextView
             android:id="@+id/clubname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="NSU Programing Club"
+            android:text=""
             android:textSize="20dp"
             android:textColor="@color/dark"
             android:fontFamily="@font/poppins_semibold"

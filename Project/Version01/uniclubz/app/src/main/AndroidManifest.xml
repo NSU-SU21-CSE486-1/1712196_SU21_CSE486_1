@@ -3,18 +3,28 @@
     package="com.istiaksaif.uniclubz">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".Utils.OfflineData"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniCluBz">
-        <activity android:name=".Activity.ClubActivity"></activity>
+        <activity
+            android:name=".Activity.UserClubHomeActivity"
+            android:theme="@style/Theme.UniCluBz.statusBarTransparent">
+
+        </activity>
+        <activity
+            android:name=".Activity.ClubActivity"
+            android:theme="@style/Theme.UniCluBz.statusBarTransparent">
+        </activity>
         <activity android:name=".Activity.CreateClubActivity" />
         <activity android:name=".Activity.UserHomeActivity" />
         <activity android:name=".MainActivity" />
@@ -37,6 +47,17 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <provider
+            android:authorities="com.istiaksaif.uniclubz.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths">
+
+            </meta-data>
+        </provider>
     </application>
 
 </manifest>
