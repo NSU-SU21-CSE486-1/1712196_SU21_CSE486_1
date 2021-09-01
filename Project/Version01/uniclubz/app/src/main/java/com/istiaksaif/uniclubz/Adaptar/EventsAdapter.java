@@ -15,6 +15,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.istiaksaif.uniclubz.Activity.ClubActivity;
 import com.istiaksaif.uniclubz.Model.ClubListItem;
 import com.istiaksaif.uniclubz.Model.EventItem;
@@ -24,11 +28,15 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder> {
     private Context context;
     private ArrayList<EventItem> mdata;
+    private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private String uid = user.getUid();
 
     public EventsAdapter(Context context, ArrayList<EventItem> mdata) {
         this.context = context;
@@ -46,24 +54,25 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String ClubId = mdata.get(position).getEventId();
-//        String date =mdata.get(position).getDate();
-//        String d = null;
-//        SimpleDateFormat input = new SimpleDateFormat("dd/MM/yyyy");
-//        SimpleDateFormat output = new SimpleDateFormat("dd MMMM yyyy");
-//        try {
-//            Date date1 = input.parse(date);
-//            d = output.format(date1);
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
+        String EventId = mdata.get(position).getEventId();
+
         holder.eventname.setText(mdata.get(position).getEventName());
         holder.eventDate.setText(mdata.get(position).getDate()+", "+" at "+mdata.get(position).getTime());
         holder.participation.setText("Participant");
         if(mdata.get(position).getStatus().equals("")){
+            holder.joinButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    HashMap<String, Object> result = new HashMap<>();
+                    result.put("userId", uid);
+                    result.put("status", "Interested");
+                    databaseReference.child("EventList").child(EventId).child("Participant").child(uid).updateChildren(result);
+                    holder.joinButton.setText("Interested");
+                }
+            });
 
-        }else if(mdata.get(position).getStatus().equals("conform")){
-            holder.joinButton.setVisibility(View.GONE);
+        }else if(mdata.get(position).getStatus().equals("Interested")){
+            holder.joinButton.setText("Interested");
         }
 
         Glide.with(context).load(mdata.get(position).getImage()).placeholder(R.drawable.dropdown).into(holder.eventImage);
