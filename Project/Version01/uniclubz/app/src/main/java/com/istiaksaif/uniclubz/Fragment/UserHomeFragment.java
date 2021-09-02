@@ -61,31 +61,12 @@ public class UserHomeFragment extends Fragment {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     try {
                         EventItem eventItem = new EventItem();
-                        if (!snapshot.child("Participant").exists()){
                             eventItem.setEventName(snapshot.child("EventName").getValue().toString());
                             eventItem.setImage(snapshot.child("image").getValue().toString());
                             eventItem.setEventId(snapshot.child("eventId").getValue().toString());
                             eventItem.setTime(snapshot.child("startTime").getValue().toString());
                             String date = snapshot.child("StartDate").getValue().toString();
-                            String d = null;
-                            SimpleDateFormat input = new SimpleDateFormat("dd/MM/yyyy");
-                            SimpleDateFormat output = new SimpleDateFormat("dd MMMM yyyy");
-                            try {
-                                Date date1 = input.parse(date);
-                                d = output.format(date1);
-                            } catch (ParseException e) {
-                                e.printStackTrace();
-                            }
-                            eventItem.setDate(d);
-                            eventItem.setStatus("");
-
-                            eventList.add(eventItem);
-                        }else if(snapshot.child("Participant").exists()) {
-                            eventItem.setEventName(snapshot.child("EventName").getValue().toString());
-                            eventItem.setImage(snapshot.child("image").getValue().toString());
-                            eventItem.setEventId(snapshot.child("eventId").getValue().toString());
-                            eventItem.setTime(snapshot.child("startTime").getValue().toString());
-                            String date = snapshot.child("StartDate").getValue().toString();
+                            eventItem.setParticipant(Long.toString(snapshot.child("Participant").getChildrenCount()));
                             String d = null;
                             SimpleDateFormat input = new SimpleDateFormat("dd/MM/yyyy");
                             SimpleDateFormat output = new SimpleDateFormat("dd MMMM yyyy");
@@ -103,7 +84,6 @@ public class UserHomeFragment extends Fragment {
                             }
 
                             eventList.add(eventItem);
-                        }
 
                     } catch (Exception e) {
 
