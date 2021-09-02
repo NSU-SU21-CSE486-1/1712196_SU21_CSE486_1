@@ -1,6 +1,6 @@
 package com.istiaksaif.uniclubz.Activity;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -34,9 +34,6 @@ import com.istiaksaif.uniclubz.Fragment.ProfileFragment;
 import com.istiaksaif.uniclubz.Fragment.UserHomeFragment;
 import com.istiaksaif.uniclubz.R;
 
-/**
- * Created by Istiak Saif on 14/07/21.
- */
 public class UserHomeActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
@@ -92,19 +89,19 @@ public class UserHomeActivity extends AppCompatActivity {
         tabLayout.getTabAt(2).setIcon(R.drawable.club_icon);
         tabLayout.getTabAt(1).setIcon(R.drawable.notification);
 
-        tabviewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
-            @Override
-            public void transformPage(@NonNull View page, float position) {
-                page.setTranslationX(page.getWidth()* -position);
-                if(position <= -1 || position >= 1){
-                    page.setAlpha(0);
-                }else if(position==0){
-                    page.setAlpha(1);
-                }else {
-                    page.setAlpha(1-Math.abs(position));
-                }
-            }
-        });
+//        tabviewPager.setPageTransformer(true, new ViewPager.PageTransformer() {
+//            @Override
+//            public void transformPage(@NonNull View page, float position) {
+//                page.setTranslationX(page.getWidth()* -position);
+//                if(position <= -1 || position >= 1){
+//                    page.setAlpha(0);
+//                }else if(position==0){
+//                    page.setAlpha(1);
+//                }else {
+//                    page.setAlpha(1-Math.abs(position));
+//                }
+//            }
+//        });
         //appDrawer
 
         drawerLayout = findViewById(R.id.drawer_layout);
