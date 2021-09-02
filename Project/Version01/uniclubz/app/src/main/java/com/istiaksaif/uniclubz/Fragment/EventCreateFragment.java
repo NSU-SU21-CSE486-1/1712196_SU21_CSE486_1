@@ -58,7 +58,7 @@ import static com.istiaksaif.uniclubz.Utils.TimeListHelper.optionTimeList;
 
 public class EventCreateFragment extends Fragment {
     private Toolbar toolbar;
-    private TextView clubName;
+    private TextView clubName,editImage;
     private ImageView clubImg;
 
     private MaterialAutoCompleteTextView privacy;
@@ -69,8 +69,7 @@ public class EventCreateFragment extends Fragment {
     private StorageReference storageReference;
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private String uid = user.getUid();
-    private Button donateButton;
-    private String EventId,date;
+    private String EventId,date,clubId;
     private Uri image;
     private ImageView eventImage;
 
@@ -79,13 +78,14 @@ public class EventCreateFragment extends Fragment {
     private List<TimeModel> timeModelList;
     private ImageGetHelper getImageFunction;
     private ProgressDialog pro;
-
-//    public static final int START_DATE = 0;
-//    public static final int END_DATE = 1;
+    private Intent intent;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        intent = getActivity().getIntent();
+        clubId = intent.getStringExtra("clubId");
+
         getImageFunction = new ImageGetHelper(this,null);
         pro = new ProgressDialog(getContext());
 
@@ -206,7 +206,7 @@ public class EventCreateFragment extends Fragment {
         result.put("EndTime",EndTime);
         result.put("eventId", EventId);
         result.put("userId", uid);
-        result.put("status", "");
+        result.put("clubId", clubId);
         final StorageReference fileRef = storageReference.child(System.currentTimeMillis() + "." + getActivity().getContentResolver());
         databaseReference.child(EventId).updateChildren(result).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -314,7 +314,7 @@ public class EventCreateFragment extends Fragment {
         super.onResume();
         ((ClubActivity)getActivity()).setToolbar(toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
-        ((ClubActivity)getActivity()).setText(clubName);
+        ((ClubActivity)getActivity()).setText(clubName,editImage);
         ((ClubActivity)getActivity()).setimg(clubImg);
     }
 }
