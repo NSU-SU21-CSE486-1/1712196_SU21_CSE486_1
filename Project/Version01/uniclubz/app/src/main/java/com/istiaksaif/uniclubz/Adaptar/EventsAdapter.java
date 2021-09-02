@@ -58,7 +58,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
 
         holder.eventname.setText(mdata.get(position).getEventName());
         holder.eventDate.setText(mdata.get(position).getDate()+", "+" at "+mdata.get(position).getTime());
-        holder.participation.setText("Participant");
+        holder.participation.setText("Participant "+mdata.get(position).getParticipant());
         if(mdata.get(position).getStatus().equals("")){
             holder.joinButton.setOnClickListener(new View.OnClickListener() {
                 @Override

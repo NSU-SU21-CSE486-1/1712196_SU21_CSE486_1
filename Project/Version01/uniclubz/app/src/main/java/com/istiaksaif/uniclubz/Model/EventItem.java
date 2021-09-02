@@ -1,7 +1,7 @@
 package com.istiaksaif.uniclubz.Model;
 
 public class EventItem {
-    private String image,eventName,status,eventId,date,time,description,userId;
+    private String image,eventName,status,eventId,date,time,description,userId,Participant;
 
     public EventItem() {
     }
@@ -79,5 +79,13 @@ public class EventItem {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getParticipant() {
+        return Participant;
+    }
+
+    public void setParticipant(String participant) {
+        Participant = participant;
     }
 }
