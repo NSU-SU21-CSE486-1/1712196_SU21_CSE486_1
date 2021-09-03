@@ -11,28 +11,59 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b71754-7115-4d85-98a2-6557be82304c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Adaptar/EditUniAffiliationAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Model/EditUniAffiliationItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/drawable/ic_plus.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/uniafffiliationcard.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/Activity/ProfileActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/Adapter/FinalUniAffiliationAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/Adapter/ItemAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/Adapter/TabViewPagerAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/Adapter/UniAffiliationAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/Fragment/FirstTabFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/Fragment/SecondTabFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/Fragment/ThirdTabFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/Utils/FinalUniAffiliation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/Utils/ItemList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/Utils/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/res/drawable/ic_plus.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/res/drawable/ic_user.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/res/layout/activity_profile.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/res/layout/contactcard.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/res/layout/finaluniafiiliationcard.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/res/layout/fragment_first_tab.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/res/layout/fragment_second_tab.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/res/layout/fragment_third_tab.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/res/layout/popup.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/res/layout/uniafffiliationcard.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/ClubActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/ClubActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/UniversityAffiliationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/UniversityAffiliationActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/UserHomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Activity/UserHomeActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/BloodReqFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/BloodReqFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/MembersFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/MembersFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/NotificationFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/NotificationFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/UserHomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/UserHomeFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/clubProfileFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/java/com/istiaksaif/uniclubz/Fragment/clubProfileFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_university_affiliation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_university_affiliation.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_club.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Project/Version01/uniclubz/app/src/main/res/layout/activity_club.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/Activity/FinalActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/Activity/FinalActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/Activity/SecondActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/Activity/UniversityAffiliationActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/java/com/istiaksaif/Project03/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/res/layout/activity_final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/res/layout/activity_final.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Assignment03/Project03/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[803dc47b]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
