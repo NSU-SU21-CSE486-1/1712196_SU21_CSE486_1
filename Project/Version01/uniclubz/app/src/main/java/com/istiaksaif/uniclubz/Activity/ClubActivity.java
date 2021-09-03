@@ -57,11 +57,12 @@ public class ClubActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager tabviewPager;
     private Toolbar toolbar;
-    private TextView clubName;
+    private TextView clubName,editImage;
     private ImageView clubImage;
     private Uri imageUri;
     private ImageGetHelper getImageFunction;
 
+    private ProgressDialog progressDialog,pro;
     private DatabaseReference databaseReference;
     private StorageReference storageReference;
     private String clubPhoto;
@@ -79,6 +80,7 @@ public class ClubActivity extends AppCompatActivity {
         clubId = intent.getStringExtra("clubId");
 
         getImageFunction = new ImageGetHelper(null,ClubActivity.this);
+        progressDialog = new ProgressDialog(this);
 
         toolbar = findViewById(R.id.clubtoolbar);
         clubImage = findViewById(R.id.clubimage);
@@ -156,7 +158,8 @@ public class ClubActivity extends AppCompatActivity {
         });
         //clubImage
         storageReference = FirebaseStorage.getInstance().getReference();
-        clubImage.setOnClickListener(new View.OnClickListener() {
+        editImage = findViewById(R.id.imageedit);
+        editImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 clubPhoto = "clubImage";
@@ -187,10 +190,10 @@ public class ClubActivity extends AppCompatActivity {
         String filePathName = clubPhoto+"_"+clubId;
         StorageReference storageReference1 = storageReference.child(filePathName);
 
-//        pro = new ProgressDialog(getContext());
-//        pro.show();
-//        pro.setContentView(R.layout.progress_dialog);
-//        pro.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        pro = new ProgressDialog(ClubActivity.this);
+        pro.show();
+        pro.setContentView(R.layout.progress_dialog);
+        pro.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
         storageReference1.putBytes(fileInBytes).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -206,27 +209,27 @@ public class ClubActivity extends AppCompatActivity {
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-//                                    progressDialog.dismiss();
-//                                    pro.dismiss();
+                                    progressDialog.dismiss();
+                                    pro.dismiss();
                                     Toast.makeText(ClubActivity.this,"Image Update", Toast.LENGTH_SHORT).show();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-//                            progressDialog.dismiss();
+                            progressDialog.dismiss();
                             Toast.makeText(ClubActivity.this,"Error Update", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
                 else {
-//                    progressDialog.dismiss();
+                    progressDialog.dismiss();
                     Toast.makeText(ClubActivity.this,"Error", Toast.LENGTH_SHORT).show();
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-//                progressDialog.dismiss();
+                progressDialog.dismiss();
                 Toast.makeText(ClubActivity.this,e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -236,7 +239,7 @@ public class ClubActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.clubtoolbar);
         setSupportActionBar(toolbar);
     }
-    public void setText(TextView clubName){
+    public void setText(TextView clubName,TextView editImage){
         int titleBarHeight = 0;
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
         if (resourceId > 0) {
@@ -245,6 +248,8 @@ public class ClubActivity extends AppCompatActivity {
         clubName = findViewById(R.id.clubname);
         clubName.setVisibility(View.INVISIBLE);
         clubName.setMaxHeight(titleBarHeight);
+        editImage = findViewById(R.id.imageedit);
+        editImage.setVisibility(View.GONE);
     }
     public void setimg(ImageView clubImage){
         clubImage = findViewById(R.id.clubimage);
