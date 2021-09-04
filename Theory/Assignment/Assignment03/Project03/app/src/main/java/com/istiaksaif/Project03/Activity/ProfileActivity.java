@@ -1,17 +1,11 @@
 package com.istiaksaif.Project03.Activity;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -21,8 +15,6 @@ import com.istiaksaif.Project03.Fragment.FirstTabFragment;
 import com.istiaksaif.Project03.Fragment.SecondTabFragment;
 import com.istiaksaif.Project03.Fragment.ThirdTabFragment;
 import com.istiaksaif.Project03.R;
-import com.istiaksaif.Project03.Utils.User;
-import com.istiaksaif.Project03.roomdb.DatabaseClass;
 
 import static androidx.fragment.app.FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT;
 
@@ -30,7 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager tabviewPager;
-    private TextView submitButton;
+    public static TextView submitButton;
     private ImageView swtichbtn;
 
     @Override
@@ -50,12 +42,6 @@ public class ProfileActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(tabviewPager);
 
         submitButton = findViewById(R.id.submitbtn);
-//        submitButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                saveData();
-//            }
-//        });
         swtichbtn = findViewById(R.id.switchbtn);
         swtichbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,17 +52,17 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-    private void saveData() {
-
-        DatabaseClass db  = DatabaseClass.getDbInstance(this.getApplicationContext());
-
-        User model = new User();
-        model.getName();
-        model.getNID();
-        model.getBloodGroup();
-        model.getDOB();
-        db.userDao().insertUser(model);
-
-        Toast.makeText(this, "Data Successfully Saved", Toast.LENGTH_SHORT).show();
-    }
+//    private void saveData() {
+//
+//        DatabaseClass db  = DatabaseClass.getDbInstance(this.getApplicationContext());
+//
+//        User model = new User();
+//        model.getName();
+//        model.getNID();
+//        model.getBloodGroup();
+//        model.getDOB();
+//        db.userDao().insertUser(model);
+//
+//        Toast.makeText(this, "Data Successfully Saved", Toast.LENGTH_SHORT).show();
+//    }
 }
