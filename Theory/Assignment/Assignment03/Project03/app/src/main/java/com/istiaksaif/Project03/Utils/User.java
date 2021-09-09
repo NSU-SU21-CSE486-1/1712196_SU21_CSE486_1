@@ -6,8 +6,9 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "user")
 public class User {
-    @PrimaryKey(autoGenerate = true)
-    private int key;
+    @PrimaryKey(autoGenerate = false)
+    @ColumnInfo(name = "UserId")
+    private Integer UserId;
 
     @ColumnInfo(name = "Name")
     private String Name;
@@ -21,12 +22,23 @@ public class User {
     @ColumnInfo(name = "BloodGroup")
     private String BloodGroup;
 
-    public int getKey() {
-        return key;
+    public User() {
     }
 
-    public void setKey(int key) {
-        this.key = key;
+    public User(Integer UserId, String Name, String DOB, String NID, String BloodGroup) {
+        this.UserId = UserId;
+        this.Name = Name;
+        this.DOB = DOB;
+        this.NID = NID;
+        this.BloodGroup = BloodGroup;
+    }
+
+    public Integer getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(Integer userId) {
+        UserId = userId;
     }
 
     public String getName() {
@@ -59,67 +71,5 @@ public class User {
 
     public void setBloodGroup(String bloodGroup) {
         BloodGroup = bloodGroup;
-    }
-
-    @ColumnInfo(name = "UniName")
-    private String UniName;
-    @ColumnInfo(name = "Id")
-    private String Id;
-    @ColumnInfo(name = "Department")
-    private String Department;
-    @ColumnInfo(name = "Level")
-    private String Level;
-
-    public String getUniName() {
-        return UniName;
-    }
-
-    public void setUniName(String uniName) {
-        UniName = uniName;
-    }
-
-    public String getId() {
-        return Id;
-    }
-
-    public void setId(String id) {
-        Id = id;
-    }
-
-    public String getDepartment() {
-        return Department;
-    }
-
-    public void setDepartment(String department) {
-        Department = department;
-    }
-
-    public String getLevel() {
-        return Level;
-    }
-
-    public void setLevel(String level) {
-        Level = level;
-    }
-
-    @ColumnInfo(name = "Email")
-    private String Email;
-    @ColumnInfo(name = "Phone")
-    private String Phone;
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
-    }
-
-    public String getPhone() {
-        return Phone;
-    }
-
-    public void setPhone(String phone) {
-        Phone = phone;
     }
 }
