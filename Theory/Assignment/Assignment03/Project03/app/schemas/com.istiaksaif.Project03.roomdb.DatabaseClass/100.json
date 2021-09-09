@@ -1,0 +1,157 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 100,
+    "identityHash": "d4abccea5693b7eeb30848403cd6a773",
+    "entities": [
+      {
+        "tableName": "user",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`UserId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Name` TEXT, `DOB` TEXT, `NID` TEXT, `BloodGroup` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "UserId",
+            "columnName": "UserId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Name",
+            "columnName": "Name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "DOB",
+            "columnName": "DOB",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "NID",
+            "columnName": "NID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "BloodGroup",
+            "columnName": "BloodGroup",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "UserId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "UniAffiliation",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uniAffID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `UniName` TEXT, `Id` TEXT, `Department` TEXT, `Level` TEXT, `UserId` TEXT, FOREIGN KEY(`UserId`) REFERENCES `user`(`UserId`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "uniAffID",
+            "columnName": "uniAffID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "UniName",
+            "columnName": "UniName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Id",
+            "columnName": "Id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Department",
+            "columnName": "Department",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Level",
+            "columnName": "Level",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "UserId",
+            "columnName": "UserId",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "uniAffID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "user",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "UserId"
+            ],
+            "referencedColumns": [
+              "UserId"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "contacts",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`conId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Email` TEXT, `Phone` TEXT, `UserId` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "conId",
+            "columnName": "conId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Email",
+            "columnName": "Email",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Phone",
+            "columnName": "Phone",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "UserId",
+            "columnName": "UserId",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "conId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"d4abccea5693b7eeb30848403cd6a773\")"
+    ]
+  }
+}

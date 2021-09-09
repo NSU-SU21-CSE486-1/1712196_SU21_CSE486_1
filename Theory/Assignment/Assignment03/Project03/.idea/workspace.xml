@@ -26,6 +26,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project03/Activity/FinalActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/istiaksaif/Project03/Activity/FinalActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_final.xml" afterDir="false" />
     </list>
@@ -34,7 +35,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[803dc47b]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -230,22 +231,22 @@
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
     <state x="684" y="257" width="565" height="612" key="FileChooserDialogImpl/0.26.1920.1054@0.26.1920.1054" timestamp="1631170829893" />
-    <state width="1863" height="384" key="GridCell.Tab.0.bottom" timestamp="1631192114580">
+    <state width="1863" height="384" key="GridCell.Tab.0.bottom" timestamp="1631194924855">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state width="1863" height="384" key="GridCell.Tab.0.bottom/0.26.1920.1054@0.26.1920.1054" timestamp="1631192114580" />
-    <state width="1863" height="384" key="GridCell.Tab.0.center" timestamp="1631192114580">
+    <state width="1863" height="384" key="GridCell.Tab.0.bottom/0.26.1920.1054@0.26.1920.1054" timestamp="1631194924855" />
+    <state width="1863" height="384" key="GridCell.Tab.0.center" timestamp="1631194924854">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state width="1863" height="384" key="GridCell.Tab.0.center/0.26.1920.1054@0.26.1920.1054" timestamp="1631192114580" />
-    <state width="1863" height="384" key="GridCell.Tab.0.left" timestamp="1631192114579">
+    <state width="1863" height="384" key="GridCell.Tab.0.center/0.26.1920.1054@0.26.1920.1054" timestamp="1631194924854" />
+    <state width="1863" height="384" key="GridCell.Tab.0.left" timestamp="1631194924854">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state width="1863" height="384" key="GridCell.Tab.0.left/0.26.1920.1054@0.26.1920.1054" timestamp="1631192114579" />
-    <state width="1863" height="384" key="GridCell.Tab.0.right" timestamp="1631192114580">
+    <state width="1863" height="384" key="GridCell.Tab.0.left/0.26.1920.1054@0.26.1920.1054" timestamp="1631194924854" />
+    <state width="1863" height="384" key="GridCell.Tab.0.right" timestamp="1631194924854">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
-    <state width="1863" height="384" key="GridCell.Tab.0.right/0.26.1920.1054@0.26.1920.1054" timestamp="1631192114580" />
+    <state width="1863" height="384" key="GridCell.Tab.0.right/0.26.1920.1054@0.26.1920.1054" timestamp="1631194924854" />
     <state x="440" y="239" width="1030" height="635" key="IDE.errors.dialog" timestamp="1631184273394">
       <screen x="0" y="26" width="1920" height="1054" />
     </state>
