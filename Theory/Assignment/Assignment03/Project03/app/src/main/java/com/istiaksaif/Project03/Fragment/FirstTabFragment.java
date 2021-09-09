@@ -50,50 +50,6 @@ public class FirstTabFragment extends Fragment {
         bloodGroup = view.findViewById(R.id.bloodgroup);
     }
 
-    public void Info() {
-        String FullName = fullName.getText().toString().trim();
-        String DateOfBirth = dateOfBirth.getText().toString().trim();
-        String NID = nid.getText().toString().trim();
-        String BloodGroup = bloodGroup.getText().toString().trim();
-
-        if (TextUtils.isEmpty(FullName)){
-            Toast.makeText(getActivity(), "please enter your Name", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        else if (TextUtils.isEmpty(DateOfBirth)){
-            Toast.makeText(getActivity(), "please enter DateOfBirth", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        else if (TextUtils.isEmpty(NID)){
-            Toast.makeText(getActivity(), "please enter NID", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        else if (NID.length()<13){
-            Toast.makeText(getActivity(), "Nid number minimum 13 and max 18 numbers", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        else if (TextUtils.isEmpty(BloodGroup)){
-            Toast.makeText(getActivity(), "please enter bloodGroup", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        DatabaseClass db  = DatabaseClass.getDbInstance(getActivity().getApplicationContext());
-
-        User model = new User();
-        model.setName(FullName);
-        model.setDOB(DateOfBirth);
-        model.setNID(NID);
-        model.setBloodGroup(BloodGroup);
-        db.userDao().insertUser(model);
-
-        fullName.setText("");
-        dateOfBirth.setText("");
-        nid.setText("");
-        bloodGroup.setText("");
-        Toast.makeText(getActivity(), "Data Successfully Saved", Toast.LENGTH_SHORT).show();
-
-    }
-
     private DatePickerDialog.OnDateSetListener datepickerListener = new DatePickerDialog.OnDateSetListener() {
 
         @Override
