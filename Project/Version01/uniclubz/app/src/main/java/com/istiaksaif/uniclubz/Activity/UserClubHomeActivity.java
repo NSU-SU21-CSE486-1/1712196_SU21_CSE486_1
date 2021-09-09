@@ -28,10 +28,12 @@ import com.istiaksaif.uniclubz.R;
 import com.istiaksaif.uniclubz.Utils.ImageGetHelper;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
+
 public class UserClubHomeActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
-    private TextView clubName;
+    private TextView clubName,clubDes,clubPrivacy,member,joinButton;
     private ImageView clubImage;
 
     private DatabaseReference databaseReference;
@@ -60,24 +62,52 @@ public class UserClubHomeActivity extends AppCompatActivity {
                 finish();
             }
         });
-//        getSupportActionBar().hide();
 
         //clubName
         clubName = findViewById(R.id.clubname);
+        clubDes = findViewById(R.id.clubdescription);
+        clubPrivacy = findViewById(R.id.clubprivacy);
+        member = findViewById(R.id.clubmembers);
+        joinButton = findViewById(R.id.joinbutton);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("ClubInfo");
         Query query = databaseReference.orderByChild("clubId").equalTo(clubId);
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot:snapshot.getChildren()) {
-                    String clubname = ""+dataSnapshot.child("clubName").getValue();
-                    String clubimage = ""+dataSnapshot.child("clubImage").getValue();
-
-                    clubName.setText(clubname);
                     try {
-                        Picasso.get().load(clubimage).resize(320,320).into(clubImage);
+                        String clubname = dataSnapshot.child("clubName").getValue().toString();
+                        String clubimage = dataSnapshot.child("clubImage").getValue().toString();
+                        clubDes.setText(dataSnapshot.child("clubDes").getValue().toString());
+                        clubPrivacy.setText(dataSnapshot.child("clubPrivacy").getValue()+" group ");
+                        member.setText(".  "+Long.toString(dataSnapshot.child("membersList").getChildrenCount())+" members ");
+                        clubName.setText(clubname);
+                        if (dataSnapshot.child("membersList").child(uid).exists()) {
+                            String status = dataSnapshot.child("membersList").child(uid).child("status").getValue().toString();
+                            if(status.equals("pending")){
+                                joinButton.setText("pending");
+                            }else if(status.equals("confirm")){
+                                joinButton.setVisibility(View.GONE);
+                            }
+                        } else {
+                            joinButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    HashMap<String, Object> result = new HashMap<>();
+                                    result.put("userId", uid);
+                                    result.put("status", "pending");
+                                    databaseReference.child(clubId).child("membersList").child(uid).updateChildren(result);
+                                    joinButton.setText("pending");
+                                }
+                            });
+                        }
+                        try {
+                            Picasso.get().load(clubimage).resize(320,320).into(clubImage);
+                        }catch (Exception e){
+                            Picasso.get().load(R.drawable.dropdown).into(clubImage);
+                        }
                     }catch (Exception e){
-                        Picasso.get().load(R.drawable.dropdown).into(clubImage);
+
                     }
                 }
             }
