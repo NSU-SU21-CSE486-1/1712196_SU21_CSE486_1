@@ -1,25 +1,42 @@
-<h1>Project based Assignment specification</h1>
+<h1>Project based Assignment03 specification</h1>
 
-1. Create a project called Project01 in your Theory/Assignment/Assignment01/ folder in the Git repository.
-2. In this project, Create multiple activities for setting up a user profile for your project.
-
-	a. Main activity should set the following:
+1. Copy the Project01 and paste it in your Theory/Assignment/Assignment03/ folder in the Git repository. Rename the project to Project03. Follow the project rename instructions for android.
+2. Implement lateral navigation (tabbed view) activity for profile implementation page
+	
+	a. First Tab contains basic information about the members.
 		
 		i. Name
 		ii. Date of Birth
 		iii. NID
 		iv. Blood Group
 
-	b. When the next button is clicked, the information from the main activity should be displayed. This activity is titled University Affiliation. This activity should set the following:
+	b. Second Tab contains University Affiliation about the members. Students can add multiple university affiliation using a floating action button.
 		
-		i. University name (Use drop down, pre-populated list)
-		ii. Department (Use drop down, pre-populated list, one for each university)
-		iii. Student ID
-		iv. Study Level (undergraduate / MS / PhD / Post-Doc)
+		i. University Affiliation should contain the following information:
+			1. University name (Use drop down, pre-populated list)
+			2. Department (Use drop down, pre-populated list, one for each university)
+			3. Student ID
+			4. Study Level (undergraduate / MS / PhD / Post-Doc)
+			5. Email
 
-	c. When the next button is clicked, display all the information from the main activity and university affiliation activity in a categorical manner. This activity should have a next button. On clicking this second activity, you should open up an activity where email and phone number for the user could be added. 
+		ii. Each university affiliation should be created inside a fragment.
+		iii. When a fab button is clicked, another university affiliation fragment is added. 
+		iv. Second tab should contain a listview of university affiliation fragments.
 
-	On clicking this activity, display all the data in a final activity.
+	c. Third tab contains phone numbers for the members. Students can add multiple phone numbers using a floating action button.
+
+		i. Phone number should contain the following information:
+			1. Tag (Home/office/Other/Custom)
+			2. Phone number
+		ii. Each phone number entry should be inside a fragment.
+		iii. When a fab button is clicked, another phone number fragment is added to the third tab.
+		iv. Third tab should contain a listview of phone numbers.
+
+
+3. Add a submit button in lateral navigation activity. On clicking the submit button, add the member information to a recyclerview. Each entry in the recyclerview contains NID and person name. On tapping an entry in the recyclerview, display the information in a dialogue message. 
+
+Use Room SQL database for saving the data in the back end. Send data from one activity to another using parcelable. 
+
 <h5>1. Main activity</h5>
 
 ![Screenshot_2021-07-09-23-14-38](https://user-images.githubusercontent.com/74167381/125170260-f16f1180-e1cf-11eb-8697-b9c1a4637723.png)
