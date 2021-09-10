@@ -1,62 +1,74 @@
 package com.istiaksaif.Project03.Activity;
 
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
-import android.os.Bundle;
-import android.widget.TextView;
-
-import com.google.android.material.textfield.TextInputEditText;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.istiaksaif.Project03.Adapter.UserListAdapter;
+import com.istiaksaif.Project03.Utils.Contact;
+import com.istiaksaif.Project03.Utils.UniAff;
+import com.istiaksaif.Project03.roomdb.DatabaseClass;
 import com.istiaksaif.Project03.R;
+import com.istiaksaif.Project03.Utils.User;
+
+import java.util.List;
 
 public class FinalActivity extends AppCompatActivity {
-
-    private TextInputEditText fullName,dateOfBirth,nid,bloodGroup;
-    private TextView uniName,studentID,department,level,phone,email;
     private Toolbar toolbar;
-    private Bundle b;
+
+    private RecyclerView recyclerview;
+    private UserListAdapter userListAdapter;
+    private List<User> userList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
 
-        b = getIntent().getExtras();
-
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Profile");
-        fullName = findViewById(R.id.name);
-        dateOfBirth = findViewById(R.id.dateofbirth);
-        nid = findViewById(R.id.nid);
-        bloodGroup = findViewById(R.id.bloodgroup);
-        uniName = findViewById(R.id.uniname);
-        studentID = findViewById(R.id.id);
-        department = findViewById(R.id.dep);
-        level = findViewById(R.id.level);
-        email = findViewById(R.id.email);
-        phone = findViewById(R.id.phone);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.leftarrow);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
-        if (b!=null){
-            String result = b.getString("name");
-            fullName.setText(result);
-            String result1 = b.getString("dateofbirth");
-            dateOfBirth.setText(result1);
-            String result3 = b.getString("bloodgroup");
-            bloodGroup.setText(result3);
-            String result2 = b.getString("nid");
-            nid.setText(result2);
-            String result4 = b.getString("uniname");
-            uniName.setText(result4);
-            String result5 = b.getString("department");
-            department.setText(result5);
-            String result6 = b.getString("id");
-            studentID.setText(result6);
-            String result7 = b.getString("studentLevel");
-            level.setText(result7);
-            String result8 = b.getString("email");
-            email.setText(result8);
-            String result9 = b.getString("phone");
-            phone.setText(result9);
+        recyclerview = findViewById(R.id.recycler);
+        recyclerview.setLayoutManager(new LinearLayoutManager(this));
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+        recyclerview.addItemDecoration(dividerItemDecoration);
+        userListAdapter = new UserListAdapter(this);
+        recyclerview.setAdapter(userListAdapter);
+
+        loadUserList();
+
+    }
+
+    private void loadUserList() {
+        DatabaseClass db = DatabaseClass.getDbInstance(this.getApplicationContext());
+        userList =db.userDao().getAllUsers();
+        userListAdapter.setUserList(userList);
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode == 100) {
+            loadUserList();
         }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
