@@ -140,6 +140,10 @@ public class CreateClubActivity extends AppCompatActivity {
         result.put("clubEmail", CLUBEMAIL);
         result.put("clubUniName", CLUBUNINAME);
         result.put("clubPrivacy", PRIVACY);
+        result.put("clubDes", "");
+        result.put("clubPhone", "");
+        result.put("clubWeb", "");
+        result.put("membersList", "");
         result.put("admin",uid);
         result.put("clubId",ClubId);
         result.put("clubImage","https://firebasestorage.googleapis.com/v0/b/uniclubz.appspot.com/o/1628247632703.android.app.ContextImpl%24ApplicationContentResolver%40225a7c6c?alt=media&token=1c08d730-93ea-494e-97c2-8c2975619ba8");

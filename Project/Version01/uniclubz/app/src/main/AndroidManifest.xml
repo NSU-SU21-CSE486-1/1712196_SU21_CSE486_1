@@ -16,15 +16,13 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniCluBz">
+        <activity android:name=".Activity.EditClubInfoActivity"></activity>
         <activity
             android:name=".Activity.UserClubHomeActivity"
-            android:theme="@style/Theme.UniCluBz.statusBarTransparent">
-
-        </activity>
+            android:theme="@style/Theme.UniCluBz.statusBarTransparent"></activity>
         <activity
             android:name=".Activity.ClubActivity"
-            android:theme="@style/Theme.UniCluBz.statusBarTransparent">
-        </activity>
+            android:theme="@style/Theme.UniCluBz.statusBarTransparent"></activity>
         <activity android:name=".Activity.CreateClubActivity" />
         <activity android:name=".Activity.UserHomeActivity" />
         <activity android:name=".MainActivity" />
@@ -47,16 +45,15 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
         <provider
-            android:authorities="com.istiaksaif.uniclubz.fileprovider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="com.istiaksaif.uniclubz.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths">
-
-            </meta-data>
+                android:resource="@xml/file_paths"></meta-data>
         </provider>
     </application>
 
