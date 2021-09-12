@@ -44,7 +44,7 @@ public class UserHomeActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private LottieAnimationView cross;
     private CardView cardView;
-    private LinearLayout createClub,logoutButton;
+    private LinearLayout createClub,logoutButton,chat;
 
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     private FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -135,8 +135,18 @@ public class UserHomeActivity extends AppCompatActivity {
         createClub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              Intent intent = new Intent(getApplicationContext(), CreateClubActivity.class);
-              startActivity(intent);
+                drawerLayout.closeDrawer(GravityCompat.END);
+                Intent intent = new Intent(getApplicationContext(), CreateClubActivity.class);
+                startActivity(intent);
+            }
+        });
+        chat = findViewById(R.id.chats);
+        chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.closeDrawer(GravityCompat.END);
+                Intent intent = new Intent(getApplicationContext(), ChatHomeActivity.class);
+                startActivity(intent);
             }
         });
 
