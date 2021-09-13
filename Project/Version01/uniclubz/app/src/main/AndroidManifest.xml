@@ -16,13 +16,16 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniCluBz">
-        <activity android:name=".Activity.EditClubInfoActivity"></activity>
+        <activity android:name=".Activity.ChatHomeActivity"></activity>
+        <activity android:name=".Activity.ChatActivity" />
+        <activity android:name=".Activity.RequestActivity" />
+        <activity android:name=".Activity.EditClubInfoActivity" />
         <activity
             android:name=".Activity.UserClubHomeActivity"
-            android:theme="@style/Theme.UniCluBz.statusBarTransparent"></activity>
+            android:theme="@style/Theme.UniCluBz.statusBarTransparent" />
         <activity
             android:name=".Activity.ClubActivity"
-            android:theme="@style/Theme.UniCluBz.statusBarTransparent"></activity>
+            android:theme="@style/Theme.UniCluBz.statusBarTransparent" />
         <activity android:name=".Activity.CreateClubActivity" />
         <activity android:name=".Activity.UserHomeActivity" />
         <activity android:name=".MainActivity" />
@@ -53,7 +56,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
     </application>
 
