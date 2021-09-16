@@ -12,7 +12,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight=".9"
+            android:layout_weight=".87"
             android:orientation="horizontal"
             android:paddingLeft="5dp"
             android:layout_marginTop="8dp">
@@ -63,7 +63,7 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight=".1"
+            android:layout_weight=".13"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical">
             <ImageView
@@ -71,6 +71,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_chat"/>
+            <ImageView
+                android:id="@+id/accept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check"/>
+            <ImageView
+                android:id="@+id/decline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_cross"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
