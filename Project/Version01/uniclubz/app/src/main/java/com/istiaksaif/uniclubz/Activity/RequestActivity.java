@@ -84,11 +84,12 @@ public class RequestActivity extends AppCompatActivity {
                             if(snapshot1.child("status").getValue().toString().equals("pending")) {
                                 String userid = snapshot1.child("userId").getValue().toString();
                                 memberitem.setUserId(userid);
+                                memberitem.setStatus(snapshot1.child("status").getValue().toString());
+                                memberitem.setClubId(clubId);
                                 Query query1 = FirebaseDatabase.getInstance().getReference().child("users").orderByChild("userId").equalTo(userid);
                                 query1.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        reqItemArrayList.clear();
                                         for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
                                             memberitem.setName(dataSnapshot1.child("name").getValue().toString());
                                             memberitem.setImage(dataSnapshot1.child("imageUrl").getValue().toString());

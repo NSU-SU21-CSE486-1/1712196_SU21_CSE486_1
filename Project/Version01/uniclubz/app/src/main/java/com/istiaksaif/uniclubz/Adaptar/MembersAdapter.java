@@ -33,10 +33,12 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.ViewHold
 
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private String uid = user.getUid();
+    private DatabaseReference databaseReference;
 
     public MembersAdapter(Context context, ArrayList<MemberItem> mdata) {
         this.context = context;
         this.mdata = mdata;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -51,12 +53,35 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String id = mdata.get(position).getUserId();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
         holder.membername.setText(mdata.get(position).getName());
         holder.memberUni.setText("Studies "+mdata.get(position).getDepartment()+" at "+mdata.get(position).getUniname());
         Glide.with(context).load(mdata.get(position).getImage()).placeholder(R.drawable.dropdown).into(holder.memberImage);
         if(id.equals(uid)){
             holder.chat.setVisibility(View.GONE);
-        }else {
+        }else if(mdata.get(position).getStatus().equals("pending")){
+            holder.chat.setVisibility(View.GONE);
+            holder.accept.setVisibility(View.VISIBLE);
+            holder.decline.setVisibility(View.VISIBLE);
+            holder.accept.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    HashMap<String, Object> result = new HashMap<>();
+                    result.put("status", "confirm");
+                    databaseReference.child("ClubInfo").child(mdata.get(position).getClubId()).child("membersList").child(id).updateChildren(result);
+                    holder.itemView.setVisibility(View.GONE);
+                }
+            });
+            holder.decline.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    databaseReference.child("ClubInfo").child(mdata.get(position).getClubId()).child("membersList").child(id).removeValue();
+                    mdata.remove(position);
+                    notifyItemChanged(position);
+                    notifyDataSetChanged();
+                }
+            });
+        } else {
             holder.chat.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -76,7 +101,7 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView memberImage,chat;
+        ImageView memberImage,chat,accept,decline;
         TextView membername,memberUni;
 
         public ViewHolder(@NonNull View itemView) {
@@ -85,6 +110,10 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.ViewHold
             membername = (TextView) itemView.findViewById(R.id.membername);
             memberUni = (TextView) itemView.findViewById(R.id.currentuni);
             chat = (ImageView) itemView.findViewById(R.id.chat);
+            accept = (ImageView) itemView.findViewById(R.id.accept);
+            decline = (ImageView) itemView.findViewById(R.id.decline);
+            accept.setVisibility(View.GONE);
+            decline.setVisibility(View.GONE);
         }
     }
 }

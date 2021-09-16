@@ -1,7 +1,7 @@
 package com.istiaksaif.uniclubz.Model;
 
 public class MemberItem {
-    String name,image,uniname,userId,Department;
+    String name,image,uniname,userId,Department,status,clubId;
 
     public MemberItem() {
     }
@@ -52,5 +52,21 @@ public class MemberItem {
 
     public void setDepartment(String department) {
         Department = department;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getClubId() {
+        return clubId;
+    }
+
+    public void setClubId(String clubId) {
+        this.clubId = clubId;
     }
 }
