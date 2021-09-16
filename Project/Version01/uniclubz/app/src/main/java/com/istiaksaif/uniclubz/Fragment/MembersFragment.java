@@ -84,22 +84,20 @@ public class MembersFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot:snapshot.getChildren()){
-                    String req = Long.toString(dataSnapshot.child("membersList").getChildrenCount());
-                    int i , res=0;
-                    for(DataSnapshot snapshot1:dataSnapshot.child("membersList").getChildren()){
-//                        for(i=1; i<=Integer.parseInt(req) ; i++){
-//                            if(snapshot1.child("status").getValue().toString().equals("pending")){
-//                                res=i+1;
-//                            }
-//                        }
-                        if(snapshot1.child("status").getValue().toString().equals("pending")){
-                            request.setText("request "+req);
-                            if(Integer.parseInt(req)==0){
-                                request.setTextColor(getResources().getColor(R.color.dark_blue));
-                            }else{
-                                request.setTextColor(getResources().getColor(R.color.pink));
+                    try {
+                        for (DataSnapshot snapshot1 : dataSnapshot.child("membersList").getChildren()) {
+                            if (snapshot1.child("status").getValue().toString().equals("pending")) {
+                                String req = Long.toString(dataSnapshot.child("membersList").getChildrenCount());
+                                request.setText("request " + req);
+                                if (Integer.parseInt(req) == 0) {
+                                    request.setTextColor(getResources().getColor(R.color.dark_blue));
+                                } else {
+                                    request.setTextColor(getResources().getColor(R.color.pink));
+                                }
                             }
                         }
+                    }catch (Exception e){
+
                     }
                 }
             }
@@ -117,17 +115,17 @@ public class MembersFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 memberItemArrayList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    MemberItem memberitem = new MemberItem();
                     try {
                         for (DataSnapshot snapshot1:snapshot.child("membersList").getChildren()){
+                            MemberItem memberitem = new MemberItem();
                             if(snapshot1.child("status").getValue().toString().equals("confirm")) {
                                 String userid = snapshot1.child("userId").getValue().toString();
                                 memberitem.setUserId(userid);
+                                memberitem.setStatus(snapshot1.child("status").getValue().toString());
                                 Query query1 = FirebaseDatabase.getInstance().getReference().child("users").orderByChild("userId").equalTo(userid);
                                 query1.addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        memberItemArrayList.clear();
                                         for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
                                             memberitem.setName(dataSnapshot1.child("name").getValue().toString());
                                             memberitem.setImage(dataSnapshot1.child("imageUrl").getValue().toString());
