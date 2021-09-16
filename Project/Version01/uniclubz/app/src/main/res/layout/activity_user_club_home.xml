@@ -127,6 +127,7 @@
                 android:layout_marginLeft="8dp"
                 android:orientation="vertical">
                 <TextView
+                    android:id="@+id/bloodtitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Blood Donate"
@@ -146,6 +147,7 @@
                 android:layout_marginLeft="8dp"
                 android:orientation="vertical">
                 <TextView
+                    android:id="@+id/clevent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Recent Event"

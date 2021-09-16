@@ -3,6 +3,8 @@ package com.istiaksaif.uniclubz.Activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -24,10 +26,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
+import com.istiaksaif.uniclubz.Adaptar.EventsAdapter;
+import com.istiaksaif.uniclubz.Model.EventItem;
 import com.istiaksaif.uniclubz.R;
 import com.istiaksaif.uniclubz.Utils.ImageGetHelper;
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 public class UserClubHomeActivity extends AppCompatActivity {
@@ -36,11 +44,16 @@ public class UserClubHomeActivity extends AppCompatActivity {
     private TextView clubName,clubDes,clubPrivacy,member,joinButton;
     private ImageView clubImage;
 
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseReference,eventsDatabaseRef;
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private String uid = user.getUid();
     private Intent intent;
     private String clubId;
+
+    private RecyclerView eventsRecyclerView;
+    private EventsAdapter eventsAdapter;
+    private ArrayList<EventItem> eventList;
+    private TextView event,blood;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +130,76 @@ public class UserClubHomeActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        event = findViewById(R.id.clevent);
+        blood = findViewById(R.id.bloodtitle);
+        eventsDatabaseRef = FirebaseDatabase.getInstance().getReference();
+        eventList = new ArrayList<>();
+
+        eventsRecyclerView = findViewById(R.id.clubevents);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        eventsRecyclerView.setLayoutManager(layoutManager);
+        eventsRecyclerView.setHasFixedSize(true);
+        GetDataFromFirebase();
+    }
+    private void GetDataFromFirebase() {
+        Query query = eventsDatabaseRef.child("EventList").orderByChild("clubId").equalTo(clubId);
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ClearAll();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    try {
+                        EventItem eventItem = new EventItem();
+                        eventItem.setEventName(snapshot.child("EventName").getValue().toString());
+                        eventItem.setImage(snapshot.child("image").getValue().toString());
+                        eventItem.setEventId(snapshot.child("eventId").getValue().toString());
+                        eventItem.setTime(snapshot.child("startTime").getValue().toString());
+                        String date = snapshot.child("StartDate").getValue().toString();
+                        eventItem.setParticipant(Long.toString(snapshot.child("Participant").getChildrenCount()));
+                        String d = null;
+                        SimpleDateFormat input = new SimpleDateFormat("dd/MM/yyyy");
+                        SimpleDateFormat output = new SimpleDateFormat("dd MMMM yyyy");
+                        try {
+                            Date date1 = input.parse(date);
+                            d = output.format(date1);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        eventItem.setDate(d);
+                        if (snapshot.child("Participant").child(uid).exists()) {
+                            eventItem.setStatus(snapshot.child("Participant").child(uid).child("status").getValue().toString());
+                        } else {
+                            eventItem.setStatus("");
+                        }
+
+                        eventList.add(eventItem);
+
+                    } catch (Exception e) {
+
+                    }
+                }
+                eventsAdapter = new EventsAdapter(UserClubHomeActivity.this, eventList);
+                eventsRecyclerView.setAdapter(eventsAdapter);
+                eventsAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void ClearAll(){
+        if (eventList !=null){
+            eventList.clear();
+            if (eventsAdapter!=null){
+                eventsAdapter.notifyDataSetChanged();
+            }
+        }
+        eventList = new ArrayList<>();
     }
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){

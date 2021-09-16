@@ -1,11 +1,5 @@
-<vector android:height="9.6dp" android:viewportHeight="12"
-    android:viewportWidth="10" android:width="8dp" xmlns:android="http://schemas.android.com/apk/res/android">
-    <path android:fillColor="#00000000"
-        android:pathData="M8.5,5.4546H1.5C0.9477,5.4546 0.5,5.943 0.5,6.5455V10.3637C0.5,10.9662 0.9477,11.4546 1.5,11.4546H8.5C9.0523,11.4546 9.5,10.9662 9.5,10.3637V6.5455C9.5,5.943 9.0523,5.4546 8.5,5.4546Z"
-        android:strokeColor="#000000" android:strokeLineCap="round"
-        android:strokeLineJoin="round" android:strokeWidth="1"/>
-    <path android:fillColor="#00000000"
-        android:pathData="M2.5,5.4545V3.2727C2.5,2.5494 2.7634,1.8557 3.2322,1.3442C3.7011,0.8327 4.337,0.5454 5,0.5454C5.663,0.5454 6.2989,0.8327 6.7678,1.3442C7.2366,1.8557 7.5,2.5494 7.5,3.2727V5.4545"
-        android:strokeColor="#000000" android:strokeLineCap="round"
-        android:strokeLineJoin="round" android:strokeWidth="1"/>
+<vector android:height="15dp" android:viewportHeight="512"
+    android:viewportWidth="512" android:width="15dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#FF000000" android:pathData="M405.333,170.667v-21.333C405.333,67.008 338.347,0 256,0S106.667,67.008 106.667,149.333v21.333c-35.285,0 -64,28.715 -64,64V448c0,35.285 28.715,64 64,64h298.667c35.285,0 64,-28.715 64,-64V234.667C469.333,199.381 440.619,170.667 405.333,170.667zM149.333,149.333c0,-58.816 47.851,-106.667 106.667,-106.667s106.667,47.851 106.667,106.667v21.333H149.333V149.333zM426.667,448c0,11.776 -9.579,21.333 -21.333,21.333H106.667c-11.755,0 -21.333,-9.557 -21.333,-21.333V234.667c0,-11.776 9.579,-21.333 21.333,-21.333h298.667c11.755,0 21.333,9.557 21.333,21.333V448z"/>
+    <path android:fillColor="#FF000000" android:pathData="M256,245.333c-35.285,0 -64,28.715 -64,64c0,27.776 17.899,51.243 42.667,60.075v35.925c0,11.797 9.557,21.333 21.333,21.333c11.776,0 21.333,-9.536 21.333,-21.333v-35.925C302.101,360.576 320,337.109 320,309.333C320,274.048 291.285,245.333 256,245.333zM256,330.667c-11.755,0 -21.333,-9.557 -21.333,-21.333S244.245,288 256,288c11.755,0 21.333,9.557 21.333,21.333S267.755,330.667 256,330.667z"/>
 </vector>
