@@ -1,9 +1,11 @@
 package com.istiaksaif.uniclubz.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,12 +25,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.istiaksaif.uniclubz.Activity.SearchActivity;
 import com.istiaksaif.uniclubz.Adaptar.ClubSugListAdapter;
 import com.istiaksaif.uniclubz.Adaptar.ClubListAdapter;
 import com.istiaksaif.uniclubz.Adaptar.JoinedClubListAdapter;
+import com.istiaksaif.uniclubz.Adaptar.MembersAdapter;
 import com.istiaksaif.uniclubz.Model.ClubJoinedListItem;
 import com.istiaksaif.uniclubz.Model.ClubListItem;
 import com.istiaksaif.uniclubz.Model.ClubSugListItem;
+import com.istiaksaif.uniclubz.Model.MemberItem;
 import com.istiaksaif.uniclubz.R;
 
 import java.util.ArrayList;
@@ -43,6 +50,7 @@ public class ClubsFragment extends Fragment {
     private DatabaseReference clubItemDatabaseRef;
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private String uid = user.getUid();
+    private ImageView searchImg;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -73,6 +81,15 @@ public class ClubsFragment extends Fragment {
         GetData();
         clubSugListItemArrayList.clear();
         ClearAll();
+
+        searchImg = view.findViewById(R.id.searchimg);
+        searchImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void GetDataJoinedClub() {
@@ -211,6 +228,7 @@ public class ClubsFragment extends Fragment {
         }
         clubItemArrayList = new ArrayList<>();
     }
+
         @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
