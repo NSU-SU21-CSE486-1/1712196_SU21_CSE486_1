@@ -16,52 +16,64 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniCluBz">
-        <activity android:name=".SplashScreen"
-            android:theme="@style/Theme.UniCluBz"
-            android:screenOrientation="portrait">
+        <activity android:name=".Activity.SearchActivity"></activity>
+        <activity
+            android:name=".SplashScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.UniCluBz">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.ChatHomeActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.ChatActivity"
+        <activity
+            android:name=".Activity.ChatHomeActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activity.RequestActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.EditClubInfoActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activity.ChatActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.RequestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.EditClubInfoActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activity.UserClubHomeActivity"
-            android:theme="@style/Theme.UniCluBz.statusBarTransparent"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.UniCluBz.statusBarTransparent" />
         <activity
             android:name=".Activity.ClubActivity"
-            android:theme="@style/Theme.UniCluBz.statusBarTransparent"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.CreateClubActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.UserHomeActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.UniCluBz.statusBarTransparent" />
+        <activity
+            android:name=".Activity.CreateClubActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.UserHomeActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.UniCluBz"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.UniCluBz" />
         <activity
             android:name=".Activity.LogInActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.UniCluBz"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".Activity.RegistationActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.checkActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.EditPersonalInfoActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activity.UniversityAffiliationActivity"
-            android:screenOrientation="portrait"/>
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".Activity.RegistationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.checkActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.EditPersonalInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.UniversityAffiliationActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="preloaded_fonts"

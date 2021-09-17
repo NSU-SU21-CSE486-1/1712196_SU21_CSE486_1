@@ -7,10 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -45,6 +47,7 @@ public class MembersFragment extends Fragment {
     private String uid = user.getUid();
     private Intent intent;
     private String clubId;
+    private SearchView searchView;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -107,6 +110,8 @@ public class MembersFragment extends Fragment {
 
             }
         });
+
+        searchView = view.findViewById(R.id.searchview);
     }
     private void GetData() {
         Query query = DatabaseRef.child("ClubInfo").orderByChild("clubId").equalTo(clubId);
@@ -206,6 +211,36 @@ public class MembersFragment extends Fragment {
 
             }
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if(searchView !=null){
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    search(newText);
+                    return true;
+                }
+            });
+        }
+    }
+
+    private void search(String str) {
+        ArrayList<MemberItem> searchLists = new ArrayList<>();
+        for(MemberItem obj:memberItemArrayList){
+            if(obj.getName().toLowerCase().contains(str.toLowerCase())){
+                searchLists.add(obj);
+            }
+        }
+        memberListAdapter = new MembersAdapter(getActivity(),searchLists);
+        memberRecyclerView.setAdapter(memberListAdapter);
     }
         @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
