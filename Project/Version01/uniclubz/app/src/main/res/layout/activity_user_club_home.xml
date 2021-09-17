@@ -123,9 +123,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="8dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
                 <TextView
                     android:id="@+id/bloodtitle"
                     android:layout_width="match_parent"
@@ -138,7 +137,8 @@
                     android:id="@+id/blooddonate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"/>
+                    android:padding="5dp"
+                    android:background="@color/pink_white"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
