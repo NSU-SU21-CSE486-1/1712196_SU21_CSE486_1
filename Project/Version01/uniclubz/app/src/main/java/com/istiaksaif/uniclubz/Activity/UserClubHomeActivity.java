@@ -26,7 +26,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
+import com.istiaksaif.uniclubz.Adaptar.BloodDonateAdapter;
 import com.istiaksaif.uniclubz.Adaptar.EventsAdapter;
+import com.istiaksaif.uniclubz.Model.BloodDonateItem;
 import com.istiaksaif.uniclubz.Model.EventItem;
 import com.istiaksaif.uniclubz.R;
 import com.istiaksaif.uniclubz.Utils.ImageGetHelper;
@@ -44,15 +46,17 @@ public class UserClubHomeActivity extends AppCompatActivity {
     private TextView clubName,clubDes,clubPrivacy,member,joinButton;
     private ImageView clubImage;
 
-    private DatabaseReference databaseReference,eventsDatabaseRef;
+    private DatabaseReference databaseReference,eventsDatabaseRef,bloodDonateDatabase;
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     private String uid = user.getUid();
     private Intent intent;
     private String clubId;
 
-    private RecyclerView eventsRecyclerView;
+    private RecyclerView eventsRecyclerView,bloodDonateRecyclerView;
     private EventsAdapter eventsAdapter;
     private ArrayList<EventItem> eventList;
+    private BloodDonateAdapter bloodDonateAdapter;
+    private ArrayList<BloodDonateItem> bloodDonateItemArrayList;
     private TextView event,blood;
 
     @Override
@@ -131,6 +135,16 @@ public class UserClubHomeActivity extends AppCompatActivity {
             }
         });
 
+        bloodDonateDatabase = FirebaseDatabase.getInstance().getReference();
+        bloodDonateItemArrayList = new ArrayList<>();
+
+        bloodDonateRecyclerView = findViewById(R.id.blooddonate);
+        LinearLayoutManager layoutManager1 = new LinearLayoutManager(getApplicationContext());
+        layoutManager1.setOrientation(LinearLayoutManager.HORIZONTAL);
+        bloodDonateRecyclerView.setLayoutManager(layoutManager1);
+        bloodDonateRecyclerView.setHasFixedSize(true);
+        GetData();
+
         event = findViewById(R.id.clevent);
         blood = findViewById(R.id.bloodtitle);
         eventsDatabaseRef = FirebaseDatabase.getInstance().getReference();
@@ -142,6 +156,48 @@ public class UserClubHomeActivity extends AppCompatActivity {
         eventsRecyclerView.setLayoutManager(layoutManager);
         eventsRecyclerView.setHasFixedSize(true);
         GetDataFromFirebase();
+    }
+    private void GetData() {
+        Query query = bloodDonateDatabase.child("BloodReqList").orderByChild("clubId").equalTo(clubId);
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    try {
+                        BloodDonateItem bloodDonateItem = new BloodDonateItem();
+                        bloodDonateItem.setBag(snapshot.child("bag").getValue().toString());
+                        bloodDonateItem.setBloodgroup(snapshot.child("bloodGroup").getValue().toString());
+                        bloodDonateItem.setContactphone(snapshot.child("contactPhone").getValue().toString());
+                        bloodDonateItem.setTime(snapshot.child("time").getValue().toString());
+                        bloodDonateItem.setHosname(snapshot.child("hosName").getValue().toString());
+                        bloodDonateItem.setHosaddress(snapshot.child("hosAddress").getValue().toString());
+                        String date = snapshot.child("date").getValue().toString();
+                        String d = null;
+                        SimpleDateFormat input = new SimpleDateFormat("dd/MM/yyyy");
+                        SimpleDateFormat output = new SimpleDateFormat("dd MMMM yyyy");
+                        try {
+                            Date date1 = input.parse(date);
+                            d = output.format(date1);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        bloodDonateItem.setDate(d);
+                        bloodDonateItemArrayList.add(bloodDonateItem);
+
+                    } catch (Exception e) {
+
+                    }
+                }
+                bloodDonateAdapter = new BloodDonateAdapter(UserClubHomeActivity.this, bloodDonateItemArrayList);
+                bloodDonateRecyclerView.setAdapter(bloodDonateAdapter);
+                bloodDonateAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
     private void GetDataFromFirebase() {
         Query query = eventsDatabaseRef.child("EventList").orderByChild("clubId").equalTo(clubId);
@@ -191,7 +247,6 @@ public class UserClubHomeActivity extends AppCompatActivity {
             }
         });
     }
-
     private void ClearAll(){
         if (eventList !=null){
             eventList.clear();
