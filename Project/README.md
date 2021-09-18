@@ -2,7 +2,8 @@
 
 <h1>Introduction</h1>
 
-<p>Build an application called UniCluBz that serves as a common platform for all clubs across all universities in Bangladesh. Any club in any university will create a profile for their club. To register any club, the contact information for that club (Email, phone, Web address, Logo, University) will have to be provided. When a club is created, a key person will be associated with the club account.</p>
+<p>UniCluBz is an application that acts as a shared platform for all clubs across all Bangladeshi universities. Any university club will create a profile for their club. To register a club, you must supply the club's contact information (email, phone, web address, logo, and university). A key person will be associated with the club account when it is created. 
+So we need club members. First of all a user/student need create a personal profile and he or she can join already exits club or he/she if university manager panel then create a club. Maintain club activities like event, blood donate campain, contact with club members. This android platform application will allow the university students online based clubbing solution. And create a community others university clubs and members.</p>
 
 <h3><strong>Features</strong></h3>
 
