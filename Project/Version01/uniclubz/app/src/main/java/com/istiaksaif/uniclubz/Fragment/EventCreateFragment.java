@@ -218,9 +218,9 @@ public class EventCreateFragment extends Fragment {
                     databaseReference.child(EventId).updateChildren(resultimg).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            intent();
-                            Toast.makeText(getActivity(), "Donate Successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "now arrived an Event Successfully", Toast.LENGTH_SHORT).show();
                             pro.dismiss();
+                            getActivity().finish();
                         }
                     });
                 }else
@@ -236,9 +236,9 @@ public class EventCreateFragment extends Fragment {
                                     databaseReference.child(EventId).updateChildren(resultimg).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {
-                                            intent();
-                                            Toast.makeText(getActivity(), "Donate Successful", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getActivity(), "now arrived an Event Successfully", Toast.LENGTH_SHORT).show();
                                             pro.dismiss();
+                                            getActivity().finish();
                                         }
                                     });
                                 }
@@ -262,11 +262,6 @@ public class EventCreateFragment extends Fragment {
                 Toast.makeText(getActivity(), "Uploading Failed !!", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    private void intent() {
-        Intent intent = new Intent(getContext(), ClubActivity.class);
-        getContext().startActivity(intent);
     }
 
     @Override

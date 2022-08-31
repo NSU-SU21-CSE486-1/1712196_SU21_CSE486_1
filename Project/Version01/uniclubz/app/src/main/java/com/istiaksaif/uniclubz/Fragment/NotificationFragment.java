@@ -13,7 +13,6 @@ import com.istiaksaif.uniclubz.R;
 
 public class NotificationFragment extends Fragment {
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -23,7 +22,7 @@ public class NotificationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_clubs, container, false);
+        View view = inflater.inflate(R.layout.fragment_notifiaction, container, false);
         return view;
     }
 }
